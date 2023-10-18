@@ -1,9 +1,8 @@
-// app.js
-
 const express = require('express');
 const mongoose = require('mongoose');
 const config = require('./config/config');
-const routes = require('./routes/userRoutes')
+const routes = require('./routes/userRoutes');
+const partnerRoutes = require('./routes/partnerRoutes'); // Add this line
 
 const app = express();
 
@@ -12,11 +11,12 @@ app.use(express.json());
 
 // MongoDB Connection
 // Set the strictQuery option to false to prepare for Mongoose 7
-mongoose.set('strictQuery', false); // Add this line to address the warning
+mongoose.set('strictQuery', false);
 mongoose.connect(config.mongoUri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Routes
 app.use('/', routes);
+app.use('/partners', partnerRoutes);
 
 // Start server
 app.listen(config.port, () => {
