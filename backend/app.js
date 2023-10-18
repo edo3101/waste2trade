@@ -11,6 +11,8 @@ const app = express();
 app.use(express.json());
 
 // MongoDB Connection
+// Set the strictQuery option to false to prepare for Mongoose 7
+mongoose.set('strictQuery', false); // Add this line to address the warning
 mongoose.connect(config.mongoUri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Routes
