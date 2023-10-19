@@ -4,7 +4,12 @@ export default {
   theme: {
     extend: {
       maxWidth: {
-        'screen-12xl': '1920px',
+        'screen-12xl': '1320px',
+      },
+      colors: {
+        'custom-primary': '#DAFFFB',
+        'custom-secondary': '#64CCC5',
+        'custom-tertiary': '#176B87'
       }
     },
   },
