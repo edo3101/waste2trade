@@ -1,10 +1,13 @@
-import { Container, Hero } from '../components';
+import { Hero, CardHome, AboutHome, ContributorHome } from '../components';
 
 export default function Home() {
   return (
-    <Container>
+    <>
       <Hero />
-    </Container>
+      <CardHome />
+      <AboutHome />
+      <ContributorHome />
+    </>
   );
 }
 
