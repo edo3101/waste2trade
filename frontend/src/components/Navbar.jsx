@@ -13,7 +13,7 @@ export default function Navbar() {
             </Link>
           </div>
           <div className="flex-none">
-            <Link to="#">
+            <Link to="/auth/login">
               <button className="w-full btn btn-accent btn-outline rounded-full lg:px-10 text-custom-primary hover:text-white"><span className='text-base'>Login</span></button>
             </Link>
           </div>
