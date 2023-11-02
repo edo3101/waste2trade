@@ -19,9 +19,9 @@ function App() {
 
         <Route path="/user" element={<LoginUser />}>
           <Route path="profile" element={<UserPage />} />
-          <Route path="kedai" element={<KedaiUserPage />} />
-          <Route path="tukar" element={<RewardCount />} />
-          <Route path="berhasil" element={<ExcNotif />} />
+          <Route path="kedai" element={<KedaiUserPage/>} />
+          <Route path="tukar" element={<RewardCount/>} />
+          <Route path="berhasil" element={<ExcNotif/>} />
         </Route>
 
         <Route path="/mitra" element={<LoginMitra />}>
