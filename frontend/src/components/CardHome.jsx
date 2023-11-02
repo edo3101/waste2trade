@@ -1,4 +1,5 @@
 import Container from './Container';
+import imageLinks from '../constants';
 
 export default function CardHome() {
   return (
@@ -8,7 +9,7 @@ export default function CardHome() {
         <h2 className="text-2xl lg:text-4xl font-bold lg:mb-20 tracking-tighter text-center text-custom-tertiary">Agen Perubahan</h2>
         <div className="flex flex-wrap mt-6 justify-center">
           <div className="card w-full lg:w-1/4 bg-custom-primary mt-2 mb-2 lg:ml-4 lg:mr-4">
-            <figure><img src="https://images.pexels.com/photos/5554303/pexels-photo-5554303.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="User" /></figure>
+            <figure><img src={imageLinks.user} alt="User" /></figure>
             <div className="card-body text-custom-tertiary">
               <h2 className="card-title">User</h2>
               <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
@@ -16,7 +17,7 @@ export default function CardHome() {
           </div>
           <div className="divider lg:divider-horizontal text-custom-tertiary">OR</div>
           <div className="card w-full lg:w-1/4 bg-custom-secondary mt-2 mb-2 lg:ml-4 lg:mr-4">
-            <figure><img src="https://images.pexels.com/photos/4393665/pexels-photo-4393665.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Mitra" /></figure>
+            <figure><img src={imageLinks.mitra} alt="Mitra" /></figure>
             <div className="card-body text-custom-primary">
               <h2 className="card-title">Mitra</h2>
               <p>Culpa, molestias odit illum quae consectetur necessitatibus.</p>

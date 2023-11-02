@@ -4,4 +4,6 @@ export { default as Hero } from './Hero';
 export { default as CardHome } from './CardHome';
 export { default as AboutHome } from './AboutHome';
 export { default as ContributorHome } from './ContributorHome';
+export { default as CardLogin } from './CardLogin';
+export { default as FormRegister } from './FormRegister';
 export { default as Footer } from './Footer';
