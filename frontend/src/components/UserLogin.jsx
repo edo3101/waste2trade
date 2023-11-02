@@ -4,16 +4,16 @@ export default function UserLogin() {
   return (
 <section className='w-full bg-custom-primary'>
 <Container className='py-5 lg:px-5'>
-<div class="min-h-screen bg-custom-secondary flex items-center">
-<div class="container mx-auto max-w-md shadow-md hover:shadow-lg transition duration-300">
-<div class="py-12 p-10 bg-custom-primary">
-<div class="mb-6">
+<div className="min-h-screen bg-custom-secondary flex items-center">
+<div className="container mx-auto max-w-md shadow-md hover:shadow-lg transition duration-300">
+<div className="py-12 p-10 bg-custom-primary">
+<div className="mb-6">
 <h2 className="text-2xl lg:text-4xl font-bold lg:mb-5 tracking-tighter text-center text-custom-tertiary">USER</h2>
-<label class="mr-4 text-custom-tertiary font-bold inline-block mb-2" for="name">Email</label>
+<label className="mr-4 text-custom-tertiary font-bold inline-block mb-2" htmlFor="name">Email</label>
 <input type="text" placeholder="email@" className="input input-bordered input-accent w-full max-w-xs  text-custom-tertiary " />
 </div>
-<div class="mb-6">
-<label class="mr-4 text-custom-tertiary font-bold inline-block mb-2" for="name">Password</label>
+<div className="mb-6">
+<label className="mr-4 text-custom-tertiary font-bold inline-block mb-2" htmlFor="name">Password</label>
 <input type="password" placeholder="Type here" className="input input-bordered input-accent w-full max-w-xs  text-custom-tertiary "/>
 </div>
 <div className="flex justify-center">
