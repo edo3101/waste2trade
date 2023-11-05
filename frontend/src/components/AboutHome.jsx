@@ -28,7 +28,7 @@ export default function Hero() {
             <button className="w-full lg:w-1/4 btn btn-accent btn-outline rounded-full lg:px-20 text-custom-primary mb-5"><span className='text-base'>More</span></button>
           </div>
         </div>
-{/*USER START */}
+{/*LOGIN USER START */}
         <section className='w-full bg-custom-primary'>
         <Container className='py-5 lg:px-5'>
         <div class="min-h-screen bg-custom-secondary flex items-center">
@@ -51,8 +51,9 @@ export default function Hero() {
 </div>
         </Container>
       </section>
-  {/*USER END */}
-{/* MITRA START */}
+  {/*LOGIN USER END */}
+    
+{/*LOGIN MITRA START */}
       <section className='w-full bg-custom-primary'>
         <Container className='py-5 lg:px-5'>
         <div class="min-h-screen bg-custom-secondary flex items-center">
@@ -75,7 +76,7 @@ export default function Hero() {
 </div>
         </Container>
       </section>
-    {/* MITRA END */}
+    {/* LOGIN MITRA END */}
 
     {/* PROFILE USER START */}
     <section class="py-10 md:py-16 bg-custom-primary">
@@ -100,6 +101,10 @@ export default function Hero() {
                 </div>
             </div>
           </section>
+     {/* PROFILE USER END */}
+      
+      {/* YANG JADINYA DIPISAH, INI PAGE UMUM SEBELUM LOGIN */}
+      
             {/* OPSI SAMPAH */}
             <section class="py-10 md:py-16 bg-custom-primary">
             <div class="container max-w-screen-xl mx-auto px-4">
@@ -207,8 +212,9 @@ export default function Hero() {
                 </div>
             </div>
         </section>
-    {/* PROFILE USER END */}
-    {/* PROFILE KEDAI KOPI */}
+   {/* YANG JADINYA DIPISAH, INI PAGE UMUM SEBELUM LOGIN */}
+        
+    {/* PROFILE KEDAI KOPI AJA ONLY */}
     <div class="grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 flex flex-col items-center">
                     <div class="bg-gray-50 px-8 py-10 rounded-md flex flex-col items-center">
                         <div class="w-200 py-6 flex justify-center bg-gray-50 rounded-md mb-4">
@@ -220,7 +226,7 @@ export default function Hero() {
                         <p class="font-normal text-gray-500 text-md">Alamat: Jalan Jalan</p>
                     </div>
                     </div>
-    {/*penukaran sampahnya */}
+    {/*opsi penukaran sampahnya */}
     {/* OPSI SAMPAH */}
     <div class="container max-w-screen-xl mx-auto px-4 items-center">
             <h1 class="font-medium text-custom-secondary text-lg md:text-2xl uppercase my-8">TUKARKAN POINMU!</h1>
@@ -256,6 +262,7 @@ export default function Hero() {
                 </div>
             </div>
 
+{/** AWAL PENUKARAN SAMPAH MITRA 7 TUGAS TAMBAHAN KEMAREN */}
 {/* PROFILE KEDAI KOPI */}
 <section className='w-full bg-custom-primary'>
         <Container className='py-5 lg:px-5'>
@@ -311,6 +318,7 @@ export default function Hero() {
 </div>
 </Container>
 </section>
+      {/** END OF PERHITUNGAN SAMPAH MITRA 7 */}
 
 {/** COUNTER JUMLAH TUKARKAN */}
 <section className="w-full bg-custom-primary">
