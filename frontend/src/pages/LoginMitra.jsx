@@ -8,6 +8,8 @@ export default function LoginMitra() {
     fetchUserData();
   }, [])
 
+  console.log("test");
+
   return (
     <>
       <MitraLogin />
