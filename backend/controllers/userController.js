@@ -1,7 +1,7 @@
 // src/modules/user/controller.js
 
 const UserService = require("../services/userService");
-const coffeeShop = require("../models/coffeeShop");
+const CoffeeShop = require("../models/coffeShop");
 
 const userService = new UserService();
 

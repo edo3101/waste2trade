@@ -23,6 +23,7 @@ mongoose.connect(config.mongoUri, {
 app.use("/", routes);
 app.use("/api/auth/partner", partnerRoutes);
 app.use("/dashboard", coffeeShopRoutes);
+app.use("/dashboard", routes);
 
 // Start server
 app.listen(config.port, () => {
