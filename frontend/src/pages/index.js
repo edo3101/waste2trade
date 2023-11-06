@@ -1,3 +1,10 @@
 export { default as HomePage } from './Home';
 export { default as LoginPage } from './Login';
 export { default as RegisterPage } from './Register';
+export { default as LoginUser } from './LoginUser';
+export { default as UserLogin } from './LoginUser';
+export { default as UserPage } from './UserPage';
+export { default as KedaiUserPage } from './KedaiUserPage';
+export { default as RewardCount } from './RewardCount';
+export { default as ExcNotif } from './ExcNotif';
+export { default as LoginMitra } from './LoginMitra';
