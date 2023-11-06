@@ -46,4 +46,4 @@ export default function WasteOpt() {
 </Container>
 </section>
   )
-}
+};
