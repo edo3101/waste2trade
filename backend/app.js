@@ -19,6 +19,9 @@ mongoose.connect(config.mongoUri, {
 
 // Routes
 app.use("/", routes);
+app.get("/test", (_req, res) => {
+  res.send("Welcome to express!");
+});
 app.use("/api/auth/partner", partnerRoutes);
 
 // Start server
