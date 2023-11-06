@@ -1,4 +1,4 @@
-export default function () {
+const Footer = ()=> {
   return (
     <footer className="footer footer-center p-4 bg-white text-base-content">
       <aside>
@@ -7,3 +7,5 @@ export default function () {
     </footer>
   );
 }
+
+export default Footer
