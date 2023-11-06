@@ -1,20 +1,12 @@
 import { useEffect } from 'react';
 import { Footer, MitraLogin } from '../components';
+import { fetchAllPartners } from '../lib/fetch-user';
 
 export default function LoginMitra() {
 
-  const fetchUserData = () => {
-    fetch(import.meta.env.VITE_API_BASE_URL)
-      .then(response => {
-        return response.json()
-      })
-      .then(data => {
-        console.log(data);
-        // setUsers(data)
-      })
-  }
+ 
   useEffect(()=>{
-    fetchUserData()
+    fetchAllPartners()
   },[])
   
   return (
