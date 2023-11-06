@@ -1,3 +1,5 @@
+// app.js
+
 const express = require("express");
 const mongoose = require("mongoose");
 const config = require("./config/config");
@@ -23,6 +25,8 @@ app.get("/test", (_req, res) => {
   res.send("Welcome to express!");
 });
 app.use("/api/auth/partner", partnerRoutes);
+app.use("/dashboard", coffeeShopRoutes);
+app.use("/dashboard", routes);
 
 // Start server
 app.listen(config.port, () => {

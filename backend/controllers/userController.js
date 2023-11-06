@@ -1,6 +1,7 @@
 // src/modules/user/controller.js
 
-const UserService = require('../services/userService');
+const UserService = require("../services/userService");
+const CoffeeShop = require("../models/coffeShop");
 
 const userService = new UserService();
 
@@ -11,7 +12,7 @@ async function signup(req, res) {
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
-};
+}
 
 async function login(req, res) {
   const { email, password } = req.body;
@@ -21,9 +22,20 @@ async function login(req, res) {
   } catch (error) {
     res.status(401).json({ error: error.message });
   }
-};
+}
+
+async function getCoffeeShop(req, res) {
+  try {
+    const coffeeShops = await CoffeeShop.find();
+    res.json(coffeeShops);
+  } catch (err) {
+    console.error("Error fetching coffee shops: ", err);
+    res.status(500).json({ error: "Unable to retrieve coffee shops" });
+  }
+}
 
 module.exports = {
   signup,
   login,
+  getCoffeeShop,
 };
