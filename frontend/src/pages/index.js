@@ -8,3 +8,4 @@ export { default as KedaiUserPage } from './KedaiUserPage';
 export { default as RewardCount } from './RewardCount';
 export { default as ExcNotif } from './ExcNotif';
 export { default as LoginMitra } from './LoginMitra';
+export { default as MitraPage } from './Mitra';
