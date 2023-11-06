@@ -9,7 +9,9 @@ const bodyParser = require("body-parser");
 const app = express();
 const cors = require("cors");
 
-var whitelist = "http://localhost:5173";
+var whitelist =
+  process.env.ALLOWED_ORIGIN ||
+  "http://localhost:5317";
 
 const corsSetting = cors({
   credentials: true,
