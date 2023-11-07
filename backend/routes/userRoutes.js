@@ -5,6 +5,6 @@ const router = express.Router();
 
 router.post("/signup", userController.signup);
 router.post("/login", userController.login);
-router.get("/dashboard", userController.getCoffeeShop);
+router.get("/coffeeShops", userController.getCoffeeShop);
 
 module.exports = router;
