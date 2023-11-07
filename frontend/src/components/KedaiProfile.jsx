@@ -1,5 +1,3 @@
-{/* PROFILE KEDAI KOPI */}
-
 import Container from './Container';
 import kopigigih from '../assets/images/kopigigih.jpg';
 

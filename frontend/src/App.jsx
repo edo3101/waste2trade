@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { MainLayout, AuthLayout } from './layouts';
-import { HomePage, LoginPage, RegisterPage, ExcNotif, KedaiUserPage, LoginMitra, LoginUser, RewardCount, UserPage, MitraPage } from './pages';
+import { HomePage, LoginPage, RegisterPage, ExcNotif, KedaiUserPage, LoginMitra, LoginUser, RewardCount, UserPage, MitraPage, ListProdUser, TukarSampahMitra } from './pages';
 
 function App() {
 
@@ -18,13 +18,15 @@ function App() {
         </Route>
 
         <Route path="/user" element={<LoginUser />}>
-          <Route path="profile" element={<UserPage />} />
+          <Route path="list" element={<ListProdUser />} />
           <Route path="kedai" element={<KedaiUserPage/>} />
+          <Route path="profile" element={<UserPage />} />
           <Route path="tukar" element={<RewardCount/>} />
           <Route path="berhasil" element={<ExcNotif/>} />
         </Route>
 
         <Route path="/mitra" element={<LoginMitra />}>
+        <Route path="tukar" element={<TukarSampahMitra />} />
         </Route>
 
         {/* <Route path="*" element={<NotFoundPage />} /> */}
