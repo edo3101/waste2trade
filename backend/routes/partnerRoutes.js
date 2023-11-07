@@ -4,6 +4,6 @@ const partnerController = require("../controllers/partnerController");
 const authenticateToken = require("../middlewares/authenticateToken");
 
 router.post("/login", partnerController.login);
-router.get("/dashboard", authenticateToken, partnerController.getPartnerData);
+router.get("/profile", authenticateToken, partnerController.getPartnerData);
 
 module.exports = router;
