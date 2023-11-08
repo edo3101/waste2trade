@@ -1,14 +1,20 @@
-import Container from "./Container";
-import { Link } from "react-router-dom";
-import { FiSearch } from "react-icons/fi";
+import Container from './Container';
+import { Link } from 'react-router-dom';
+import { FiSearch } from 'react-icons/fi';
 
 export default function HistoryData() {
   return (
     <section>
       <Container>
-        <h2 className="text-3xl font-bold text-center tracking-tighter text-custom-tertiary my-8 lg:mt-16">History Data</h2>
+        <h2 className="text-3xl font-bold text-center tracking-tighter text-custom-tertiary my-8 lg:mt-16">
+          History Data
+        </h2>
         <div className="relative mb-5">
-          <input type="text" placeholder="Search" className="input input-bordered input-accent rounded-full relative w-full lg:w-1/4 text-custom-tertiary" />
+          <input
+            type="text"
+            placeholder="Search"
+            className="input input-bordered input-accent rounded-full relative w-full lg:w-1/4 text-custom-tertiary"
+          />
           <Link to="#">
             <FiSearch className="absolute text-2xl -translate-y-9 translate-x-80 lg:translate-x-72 text-custom-tertiary" />
           </Link>

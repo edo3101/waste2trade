@@ -1,4 +1,4 @@
-import { CounterExc } from '../components';
+import { CounterExc, Footer } from '../components';
 
 export default function RewardCount() {
   return (

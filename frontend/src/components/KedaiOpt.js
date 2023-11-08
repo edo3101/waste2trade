@@ -4,8 +4,8 @@ import kopikiran from '../assets/images/kopikiran.jpg';
 import kopipopipo from '../assets/images/kopipopipo.jpg';
 
 export default function KedaiOpt() {
-  return (
-    {/** 
+  return {
+    /** 
     <section>
     <Container>
  <div class="container max-w-screen-xl mx-auto px-4">
@@ -43,6 +43,6 @@ export default function KedaiOpt() {
      </div>
  </div>
  </Container>
- </section>*/}
-  )
-}; 
+ </section>*/
+  };
+}
