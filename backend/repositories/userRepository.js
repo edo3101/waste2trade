@@ -1,6 +1,4 @@
-// src/modules/user/repository.js
-
-const User = require('../models/usserModel');
+const User = require("../models/usserModel");
 
 class UserRepository {
   async createUser(userData) {

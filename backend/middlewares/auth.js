@@ -1,13 +1,11 @@
-// src/middleware/auth.js
-
-const jwt = require('jsonwebtoken');
-const config = require('/config');
+const jwt = require("jsonwebtoken");
+const config = require("/config");
 
 const authMiddleware = (req, res, next) => {
-  const token = req.header('Authorization');
+  const token = req.header("Authorization");
 
   if (!token) {
-    return res.status(401).json({ error: 'Access denied. No token provided.' });
+    return res.status(401).json({ error: "Access denied. No token provided." });
   }
 
   try {
@@ -15,7 +13,7 @@ const authMiddleware = (req, res, next) => {
     req.userId = decoded.userId;
     next();
   } catch (ex) {
-    res.status(400).json({ error: 'Invalid token.' });
+    res.status(400).json({ error: "Invalid token." });
   }
 };
 

@@ -1,0 +1,175 @@
+# Coffee Shop Dashboard Frontend API Documentation
+
+Welcome to the Coffee Shop Dashboard Frontend API documentation. This documentation will guide you on how to fetch data from the Coffee Shop Dashboard API.
+
+## Base URL
+
+The base URL for all API endpoints is: `http://localhost:3000`
+
+## Endpoints
+
+### User Signup
+
+- **URL:** `/user/signup`
+
+- **Method:** POST
+
+- **Description:** Register a new user.
+
+- **Request:**
+
+  - Request body should contain user data:
+    - `username` (String): The username of the user.
+    - `email` (String): The email of the user.
+    - `password` (String): The user's password.
+
+- **Response:**
+  - `200 OK` - Successful registration with user details.
+  - `400 Bad Request` - Invalid request parameters or data.
+  - `409 Conflict` - User with the same email already exists.
+
+- **Example Request:**
+
+  ```http
+  POST /user/signup
+  Content-Type: application/json
+
+  {
+    "username": "john_doe",
+    "email": "john.doe@example.com",
+    "password": "your_password"
+  }
+  ```
+
+- **Example Response (200 OK):**
+
+  ```json
+  {
+    "user": {
+      "_id": "12345",
+      "username": "john_doe",
+      "email": "john.doe@example.com",
+      "points": 1000
+    }
+  }
+  ```
+
+- **Example Response (400 Bad Request):**
+
+  ```json
+  {
+    "error": "Invalid request parameters."
+  }
+  ```
+
+### User Login
+
+- **URL:** `/user/login`
+
+- **Method:** POST
+
+- **Description:** Log in an existing user.
+
+- **Request:**
+
+  - Request body should contain user login data:
+    - `email` (String): The user's email.
+    - `password` (String): The user's password.
+
+- **Response:**
+  - `200 OK` - Successful login with user details and a JWT token.
+  - `401 Unauthorized` - Invalid email or password.
+
+- **Example Request:**
+
+  ```http
+  POST /user/login
+  Content-Type: application/json
+
+  {
+    "email": "john.doe@example.com",
+    "password": "your_password"
+  }
+  ```
+
+- **Example Response (200 OK):**
+
+  ```json
+  {
+    "user": {
+      "_id": "12345",
+      "username": "john_doe",
+      "email": "john.doe@example.com",
+      "points": 1000
+    },
+    "token": "your_jwt_token"
+  }
+  ```
+
+- **Example Response (401 Unauthorized):**
+
+  ```json
+  {
+    "error": "Invalid email or password."
+  }
+  ```
+
+### Get List of Coffee Shops
+
+- **URL:** `/user/coffeeShops`
+
+- **Method:** GET
+
+- **Description:** Retrieve a list of coffee shops.
+
+- **Response:**
+  - `200 OK` - Successful response with a list of coffee shops.
+  - `500 Internal Server Error` - An error occurred while fetching coffee shop data.
+
+- **Example Request:**
+
+  ```http
+  GET /user/coffeeShops
+  ```
+
+- **Example Response (200 OK):**
+
+  ```json
+  [
+    {
+      "_id": "12345",
+      "name": "Coffee Shop 1",
+      "address": "123 Main St",
+      "products": [
+        {
+          "product_name": "Cappuccino",
+          "price": "3.99"
+        },
+        // Additional coffee shop products
+      ],
+      "openhours": "08:00 AM - 06:00 PM"
+    },
+    // Additional coffee shop data
+  ]
+  ```
+
+- **Example Response (500 Internal Server Error):**
+
+  ```json
+  {
+    "error": "Unable to retrieve coffee shops"
+  }
+  ```
+
+## Error Handling
+
+The API may return errors with the appropriate HTTP status codes, along with error details in JSON format.
+
+- `400 Bad Request` - Invalid request parameters or data.
+- `401 Unauthorized` - Invalid email or password.
+- `409 Conflict` - User with the same email already exists.
+- `500 Internal Server Error` - An internal server error occurred.
+
+---
+
+This is a basic API documentation template for your frontend application to fetch data from your Coffee Shop Dashboard API. You can expand on this documentation by adding more endpoints, request parameters, and examples for different API operations as needed for your frontend application.

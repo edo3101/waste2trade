@@ -1,5 +1,3 @@
-// src/modules/user/controller.js
-
 const UserService = require("../services/userService");
 const CoffeeShop = require("../models/coffeShop");
 
