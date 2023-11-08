@@ -19,3 +19,6 @@ export { default as CounterExc } from './CounterExc';
 export { default as TukarNotif } from './TukarNotif';
 export { default as Catalog } from './Catalog';
 export { default as HistoryData } from './HistoryData';
+export { default as KedaiProfilePoint } from './KedaiProfilePoint';
+export { default as TukarSampah } from './TukarSampah';
+export { default as DatePickerTukar } from './DatePickerTukar';
