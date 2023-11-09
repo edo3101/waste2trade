@@ -8,3 +8,5 @@ export { default as RewardCount } from './RewardCount';
 export { default as ExcNotif } from './ExcNotif';
 export { default as LoginMitra } from './LoginMitra';
 export { default as MitraPage } from './Mitra';
+export { default as TukarSampahMitra } from './TukarSampahMitra';
+export { default as ListProdUser } from './ListProdUser';
