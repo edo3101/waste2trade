@@ -1,12 +1,29 @@
 import Container from './Container';
 import { Link } from 'react-router-dom';
 import imageLinks from '../constants';
+import Cookies from 'js-cookie';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 export default function Catalog() {
+  const fetchdata = async () => {
+    const s = Cookies.get('auth_token');
+    const response = await axios.get('http://localhost:3000/partner/profile', {
+      headers: {
+        Authorization: 'Bearer ' + s,
+      },
+    });
+    console.log(response);
+  };
+
+  useEffect(() => {
+    fetchdata();
+  }, []);
+
   return (
     <section>
       <Container>
-        <div className="text-sm breadcrumbs text-custom-tertiary mt-3">
+        <div className="mt-3 text-sm breadcrumbs text-custom-tertiary">
           <ul>
             <li>
               <Link className="text-base" to="/">
@@ -20,19 +37,19 @@ export default function Catalog() {
             </li>
           </ul>
         </div>
-        <h2 className="text-3xl font-bold mt-8 mb-4 lg:mt-14 lg:mb-5 tracking-tighter text-custom-tertiary">
+        <h2 className="mt-8 mb-4 text-3xl font-bold tracking-tighter lg:mt-14 lg:mb-5 text-custom-tertiary">
           Hi, Kopi Anton
         </h2>
         <div className="flex flex-col lg:flex-row">
           <div className="object-cover w-full lg:basis-1/2">
             <img className="rounded-2xl" src={imageLinks.coffeshop} alt="" />
           </div>
-          <div className="form-control card w-full lg:basis-1/4 mt-5 lg:mt-0 lg:ml-5 p-5 bg-custom-primary">
-            <h2 className="text-2xl font-bold tracking-tighter text-custom-tertiary mb-2 lg:mb-6">
+          <div className="w-full p-5 mt-5 form-control card lg:basis-1/4 lg:mt-0 lg:ml-5 bg-custom-primary">
+            <h2 className="mb-2 text-2xl font-bold tracking-tighter text-custom-tertiary lg:mb-6">
               Catalog
             </h2>
             <label className="cursor-pointer label">
-              <span className="label-text text-lg text-custom-tertiary tracking-tighter">
+              <span className="text-lg tracking-tighter label-text text-custom-tertiary">
                 Kopi
               </span>
               <input
@@ -42,7 +59,7 @@ export default function Catalog() {
               />
             </label>
             <label className="cursor-pointer label">
-              <span className="label-text text-lg text-custom-tertiary tracking-tighter">
+              <span className="text-lg tracking-tighter label-text text-custom-tertiary">
                 Barang A
               </span>
               <input
@@ -52,7 +69,7 @@ export default function Catalog() {
               />
             </label>
             <label className="cursor-pointer label">
-              <span className="label-text text-lg text-custom-tertiary tracking-tighter">
+              <span className="text-lg tracking-tighter label-text text-custom-tertiary">
                 Barang B
               </span>
               <input
@@ -62,7 +79,7 @@ export default function Catalog() {
               />
             </label>
             <label className="cursor-pointer label">
-              <span className="label-text text-lg text-custom-tertiary tracking-tighter">
+              <span className="text-lg tracking-tighter label-text text-custom-tertiary">
                 Barang C
               </span>
               <input
@@ -72,7 +89,7 @@ export default function Catalog() {
               />
             </label>
             <label className="cursor-pointer label">
-              <span className="label-text text-lg text-custom-tertiary tracking-tighter">
+              <span className="text-lg tracking-tighter label-text text-custom-tertiary">
                 Barang D
               </span>
               <input
@@ -83,8 +100,8 @@ export default function Catalog() {
             </label>
           </div>
           <div className="flex flex-col lg:ml-5">
-            <div className="card w-full lg:basis-1/2 bg-custom-primary p-5 mt-5 lg:mt-0 ">
-              <h2 className="text-2xl font-bold tracking-tighter text-custom-tertiary mb-10 lg:mb-24">
+            <div className="w-full p-5 mt-5 card lg:basis-1/2 bg-custom-primary lg:mt-0 ">
+              <h2 className="mb-10 text-2xl font-bold tracking-tighter text-custom-tertiary lg:mb-24">
                 Sampah Terkumpul
               </h2>
               <p className="text-custom-tertiary">
@@ -96,7 +113,7 @@ export default function Catalog() {
             </div>
             <div className="mt-5">
               <Link to="#">
-                <button className="w-full btn btn-accent btn-outline rounded-full text-custom-primary mb-5 lg:mb-0">
+                <button className="w-full mb-5 rounded-full btn btn-accent btn-outline text-custom-primary lg:mb-0">
                   <span className="text-base">Hitung Sampah</span>
                 </button>
               </Link>
