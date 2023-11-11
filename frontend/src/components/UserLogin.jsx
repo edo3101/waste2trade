@@ -1,6 +1,41 @@
 import Container from './Container';
+import axios from 'axios';
+import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+
 
 export default function UserLogin() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  const handleInput = (event) => {
+    const user = event.target.value;
+    setEmail(user);
+  };
+
+  const handlePass = (event) => {
+    const pass = event.target.value;
+    setPassword(pass);
+  };
+
+  const handleLogin = async () => {
+    const response = await axios.post('http://localhost:3000/user/login', {
+      email,
+      password,
+    });
+    const token = response.data.token;
+    Cookies.set('auth_token', token);
+    console.log(token);
+    window.location.assign('/user/list');
+  };
+
+  console.log(email, password);
+
+
+
+
   return (
     <section className="w-full bg-custom-primary">
       <Container className="py-5 lg:px-5">
@@ -19,8 +54,9 @@ export default function UserLogin() {
                 </label>
                 <input
                   type="text"
-                  placeholder="email@"
+                  placeholder="email"
                   className="input input-bordered input-accent w-full max-w-xs  text-custom-tertiary "
+                  onChange={handleInput}
                 />
               </div>
               <div className="mb-6">
@@ -33,11 +69,12 @@ export default function UserLogin() {
                 <input
                   type="password"
                   placeholder="Type here"
-                  className="input input-bordered input-accent w-full max-w-xs  text-custom-tertiary "
+                  className="input input-bordered input-accent w-full max-w-xs  text-custom-tertiary"
+                  onChange={handlePass}
                 />
               </div>
               <div className="flex justify-center">
-                <button className="w-full lg:w-1/4 btn btn-accent btn-outline rounded-full lg:px-20 text-custom-primary mb-5 ">
+                <button className="w-full lg:w-1/4 btn btn-accent btn-outline rounded-full lg:px-20 text-custom-primary mb-5" onClick={handleLogin}>
                   <span className="text-base">Login</span>
                 </button>
               </div>

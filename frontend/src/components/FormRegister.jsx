@@ -1,7 +1,43 @@
 import Container from './Container';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const FormRegister = () => {
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+  
+    const handleInput = (event) => {
+      const user = event.target.value;
+      setUsername(user);
+    };
+  
+    const handleMail = (event) => {
+      const mail = event.target.value;
+      setEmail(mail);
+    };
+
+    const handlePass = (event) => {
+      const pass = event.target.value;
+      setPassword(pass);
+    };
+  
+    const handleLogin = async () => {
+      const response = await axios.post('http://localhost:3000/user/signup', {
+        username,
+        email,
+        password,
+      });
+   
+      window.location.assign('/');
+    };
+  
+    console.log(username, email, password);
+
+
   return (
     <section className="mt-8 lg:mt-10">
       <Container>
@@ -18,6 +54,7 @@ const FormRegister = () => {
               placeholder="Masukkan Email"
               className="input input-bordered input-accent w-full mb-4"
               required
+              onChange={handleMail}
             />
             <label className="label">
               <span className="label-text">Username</span>
@@ -27,6 +64,7 @@ const FormRegister = () => {
               placeholder="Masukkan Username"
               className="input input-bordered input-accent w-full mb-4"
               required
+              onChange={handleInput}
             />
             <label className="label">
               <span className="label-text">Password</span>
@@ -36,9 +74,11 @@ const FormRegister = () => {
               placeholder="Masukkan Password"
               className="input input-bordered input-accent w-full mb-8"
               required
+              onChange={handlePass}
             />
             <Link to="#">
-              <button className="w-full lg:w-1/4 btn btn-accent rounded-full lg:px-10 text-custom-primary">
+              <button className="w-full lg:w-1/4 btn btn-accent rounded-full lg:px-10 text-custom-primary"
+              onClick={handleLogin}>
                 <span className="text-base">Daftar</span>
               </button>
             </Link>

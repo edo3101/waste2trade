@@ -22,15 +22,17 @@ function App() {
         <Route path="/" element={<MainLayout />}>
           <Route index element={<HomePage />} />
           <Route path="mitra/dashboard" element={<MitraPage />} />
+          <Route path="user/list" element={<ListProdUser />} />
+          <Route path="auth/register" element={<RegisterPage />} />
         </Route>
 
         <Route path="/auth" element={<AuthLayout />}>
           <Route path="login" element={<LoginPage />} />
-          <Route path="register" element={<RegisterPage />} />
+          {/* <Route path="register" element={<RegisterPage />} /> */}
         </Route>
 
         <Route path="/user" element={<LoginUser />}>
-          <Route path="list" element={<ListProdUser />} />
+      
           <Route path="kedai" element={<KedaiUserPage />} />
           <Route path="profile" element={<UserPage />} />
           <Route path="tukar" element={<RewardCount />} />

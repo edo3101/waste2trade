@@ -1,16 +1,12 @@
-import { useEffect } from 'react';
-import { fetchMitra } from '../lib/fetchMitra';
-import { Footer, WasteOpt, RewardOpt, KedaiOpt } from '../components';
 
-export default function UserPage() {
-  useEffect(()=>{
-    fetchMitra()
-  },[])
+import { Footer, WasteOpt, RewardOpt, KedaiOption } from '../components';
+
+export default function ListProdUser() {
     return (
       <>
         <WasteOpt />
+        <KedaiOption />
         <RewardOpt />
-        <KedaiOpt />
         <Footer />
       </>
     );
