@@ -60,7 +60,14 @@ exports.getPartnerData = async (req, res) => {
 
 exports.getTotalTrashWeight = async (req, res) => {
   try {
+    const partnerId = req.partner._id;
+
     const totalWeight = await TrashSubmit.aggregate([
+      {
+        $match: {
+          partnerId: partnerId,
+        },
+      },
       {
         $group: {
           _id: null,
@@ -82,7 +89,9 @@ exports.getTotalTrashWeight = async (req, res) => {
 
 exports.getTrashSubmitHistory = async (req, res) => {
   try {
-    const trashSubmitHistory = await TrashSubmit.find({});
+    const partnerId = req.partner._id;
+
+    const trashSubmitHistory = await TrashSubmit.find({ partnerId: partnerId });
 
     res.json({ trashSubmitHistory });
   } catch (error) {
@@ -102,7 +111,7 @@ exports.submitTrash = async (req, res) => {
       code: uniqueGiftCode,
       status: "unclaimed",
       points,
-      generatedBy: req.user._id,
+      generatedBy: req.partner._id,
     });
 
     await TrashSubmit.create({
@@ -110,6 +119,7 @@ exports.submitTrash = async (req, res) => {
       phoneNumber,
       trashWeight,
       trashType,
+      partnerId: req.partner._id,
     });
 
     res
