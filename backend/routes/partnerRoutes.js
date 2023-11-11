@@ -16,16 +16,10 @@ router.get(
   partnerController.getTrashSubmitHistory
 );
 router.post("/submitTrash", authenticateToken, partnerController.submitTrash);
-router.post(
+router.get(
   "/generateGiftCode",
   authenticateToken,
-  partnerController.generateGiftCode
-);
-router.post(
-  "/generateGiftCode",
-  authenticateToken,
-  partnerController.generateGiftCode,
-  partnerController.sendGeneratedGiftCode
+  partnerController.getGeneratedGiftCode
 );
 
 module.exports = router;

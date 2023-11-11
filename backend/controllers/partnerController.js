@@ -3,7 +3,19 @@ const jwt = require("jsonwebtoken");
 const config = require("../config/config");
 const Partner = require("../models/partnerModel");
 const TrashSubmit = require("../models/trashSubmitModel");
-const giftCodeMiddleware = require("../middlewares/giftCodeMiddleware");
+const GiftCode = require("../models/giftCodeModel");
+
+function generateUniqueGiftCode() {
+  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  let giftCode = "";
+
+  for (let i = 0; i < 10; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    giftCode += characters.charAt(randomIndex);
+  }
+
+  return giftCode;
+}
 
 exports.login = async (req, res) => {
   const { username, password } = req.body;
@@ -83,6 +95,16 @@ exports.submitTrash = async (req, res) => {
   const { username, phoneNumber, trashWeight, trashType } = req.body;
 
   try {
+    const points = Math.floor(trashWeight / 300);
+    const uniqueGiftCode = generateUniqueGiftCode();
+
+    const giftCode = await GiftCode.create({
+      code: uniqueGiftCode,
+      status: "unclaimed",
+      points,
+      generatedBy: req.user._id,
+    });
+
     await TrashSubmit.create({
       username,
       phoneNumber,
@@ -90,37 +112,31 @@ exports.submitTrash = async (req, res) => {
       trashType,
     });
 
-    res.status(200).json({ message: "Trash submitted successfully" });
+    res
+      .status(200)
+      .json({ message: "Trash submitted successfully", giftCode, points });
   } catch (error) {
     console.error("Error submitting trash: ", error);
     res.status(500).json({ error: "Unable to submit trash" });
   }
 };
 
-exports.generateGiftCode = async (req, res) => {
-  const { username, points } = req.body;
-
+exports.getGeneratedGiftCode = async (req, res) => {
   try {
-    // Generate a unique gift code
-    const uniqueGiftCode = generateUniqueGiftCode();
-
-    // Save the gift code to the GiftCode collection
-    const giftCode = await GiftCode.create({
-      code: uniqueGiftCode,
-      status: "unclaimed",
-      points,
+    const giftCode = await GiftCode.findOne({
       generatedBy: req.partner._id,
-    });
+      status: "unclaimed",
+    })
+      .sort({ generatedAt: -1 }) // Sort by the most recent
+      .limit(1);
+
+    if (!giftCode) {
+      return res.status(404).json({ message: "No gift code available" });
+    }
 
     res.status(200).json({ giftCode });
   } catch (error) {
-    console.error("Error generating gift code: ", error);
-    res.status(500).json({ error: "Unable to generate gift code" });
+    console.error("Error fetching gift code: ", error);
+    res.status(500).json({ error: "Unable to fetch gift code" });
   }
-};
-
-exports.generateGiftCode = giftCodeMiddleware.generateGiftCode;
-
-exports.sendGeneratedGiftCode = (req, res) => {
-  res.status(200).json({ giftCode: req.generatedGiftCode });
 };
