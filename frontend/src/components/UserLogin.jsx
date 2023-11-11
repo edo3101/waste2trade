@@ -28,7 +28,7 @@ export default function UserLogin() {
     const token = response.data.token;
     Cookies.set('auth_token', token);
     console.log(token);
-    window.location.assign('/user/list');
+    window.location.assign('/user/profile');
   };
 
   console.log(email, password);

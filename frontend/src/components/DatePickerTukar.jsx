@@ -1,15 +1,26 @@
 import React, { useState } from 'react';
-import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import DatePicker from 'react-datepicker';
 
-function DatePickerTukar() {
-  const [startDate, setStartDate] = useState(new Date());
+const DatePickerTukar = () => {
+  const [selectedDate, setSelectedDate] = useState(null);
 
   return (
-    <div>
-      <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
-    </div>
+    <div className="">
+        <label className=" block mt-5 mb-2 text-sm font-medium text-custom-secondary">
+          Pilih tanggal
+        </label>
+
+        <DatePicker
+          selected={selectedDate}
+          onChange={(date) => setSelectedDate(date)}
+          dateFormat="dd/MM/yyyy"
+          className="border-2 border-custom-secondary w-full pl-4 pr-10 py-3 leading-none rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-custom-tertiary font-medium"
+          placeholderText="Select date"
+        />
+      </div>
+ 
   );
-}
+};
 
 export default DatePickerTukar;

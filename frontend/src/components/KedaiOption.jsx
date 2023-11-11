@@ -2,6 +2,7 @@ import Container from './Container';
 import kopigigih from '../assets/images/kopigigih.jpg';
 import kopikiran from '../assets/images/kopikiran.jpg';
 import kopipopipo from '../assets/images/kopipopipo.jpg';
+import { Link } from 'react-router-dom';
 
 export default function KedaiOption() {
     return (
@@ -20,11 +21,13 @@ export default function KedaiOption() {
                     alt=""
                   />
                 </div>
-  
+
+                
                 <h4 className="font-medium text-custom-tertiary text-lg mb-4">
                   Kopi Gigih
                 </h4>
-  
+          
+
                 <p className="font-normal text-gray-500 text-md">
                   Alamat:
                 </p>

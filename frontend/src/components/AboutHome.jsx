@@ -1,5 +1,6 @@
 import Container from './Container';
 import w2tImage from '../assets/images/w2t-hero.png';
+import { Link } from 'react-router-dom';
 
 export default function Hero() {
   return (
@@ -21,9 +22,11 @@ export default function Hero() {
               Blanditiis rerum repellat, quia vitae id error corrupti sunt sequi
               quasi. Libero?
             </p>
+            <Link to={'/aboutus'}>
             <button className="w-full lg:w-1/4 btn btn-accent btn-outline rounded-full lg:px-20 text-custom-primary mb-5">
               <span className="text-base">More</span>
             </button>
+            </Link>
           </div>
         </div>
       </Container>

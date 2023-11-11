@@ -22,3 +22,7 @@ export { default as KedaiProfilePoint } from './KedaiProfilePoint';
 export { default as TukarSampah } from './TukarSampah';
 export { default as DatePickerTukar } from './DatePickerTukar';
 export { default as KedaiOption } from './KedaiOption';
+export { default as Navbar2 } from './Navbar2';
+export { default as Navbar3 } from './Navbar3';
+export { default as CodeNotif } from './CodeNotif';
+export { default as About } from './About';

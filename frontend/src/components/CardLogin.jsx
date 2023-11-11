@@ -11,7 +11,7 @@ export default function CardLogin() {
         </h2>
         <div className="flex flex-wrap my-6 justify-center">
           <Link
-            to="/user"
+            to="/auth/user"
             className="card w-full lg:w-1/4 hover:shadow-2xl bg-custom-primary mt-2 mb-2 lg:ml-4 lg:mr-4"
           >
             <figure>
@@ -25,7 +25,7 @@ export default function CardLogin() {
             OR
           </div>
           <Link
-            to="/mitra"
+            to="/auth/mitra"
             className="card w-full lg:w-1/4 hover:shadow-2xl bg-custom-secondary mt-2 mb-2 lg:ml-4 lg:mr-4"
           >
             <figure>

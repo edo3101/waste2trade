@@ -3,6 +3,7 @@ import kopi from '../assets/images/kopi-reward.jpg';
 import totebag from '../assets/images/totebag-reward.jpg';
 import tumbler from '../assets/images/tumbler-reward.jpg';
 
+
 export default function RewardOpt() {
   return (
     <section>
@@ -20,12 +21,14 @@ export default function RewardOpt() {
                   alt=""
                 />
               </div>
+        
               <h4 className="font-medium text-custom-tertiary text-lg mb-4">
                 Kopi Gula Aren
               </h4>
               <h4 className="font-medium text-custom-tertiary text-lg mb-4">
                 5 Poin
               </h4>
+    
             </div>
 
             <div className="bg-gray-50 px-8 py-10 rounded-md flex flex-col items-center">

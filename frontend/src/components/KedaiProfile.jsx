@@ -1,5 +1,6 @@
 import Container from './Container';
 import kopigigih from '../assets/images/kopigigih.jpg';
+import { Link } from 'react-router-dom';
 
 export default function KedaiProfile() {
   return (

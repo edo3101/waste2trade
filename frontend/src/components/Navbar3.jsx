@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import Container from './Container';
 import logo from '../assets/images/logo.png';
+import kopigigih from '../assets/images/kopigigih.jpg';
 
-export default function Navbar() {
+export default function Navbar3() {
   return (
     <header className="py-4 lg:py-6 sticky top-0 left-0 z-50 bg-white-950 bg-opacity-80 backdrop-filter backdrop-blur-md backdrop-saturate-100 shadow-sm">
       <Container className="lg:px-5">
@@ -13,17 +14,12 @@ export default function Navbar() {
             </Link>
           </div>
           <div className="flex-none">
-            <Link to="/list">
-              <button className="w-full btn btn-accent btn-outline rounded-full lg:px-10 text-custom-primary hover:text-white">
-                <span className="text-base">Mitra dan Produk</span>
-              </button>
-            </Link>
-          </div>
-          <div className="flex-none">
-            <Link to="/auth/login">
-              <button className="w-full btn btn-accent btn-outline rounded-full lg:px-10 text-custom-primary hover:text-white">
-                <span className="text-base">Login</span>
-              </button>
+            <Link to="">
+            <img
+                className="object-cover h-10 w-10 rounded-full"
+                src={kopigigih}
+                alt=""
+              />
             </Link>
           </div>
         </div>

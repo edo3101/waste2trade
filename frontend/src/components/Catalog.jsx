@@ -112,7 +112,7 @@ export default function Catalog() {
               </h3>
             </div>
             <div className="mt-5">
-              <Link to="#">
+              <Link to={'/mitra/tukar'}>
                 <button className="w-full mb-5 rounded-full btn btn-accent btn-outline text-custom-primary lg:mb-0">
                   <span className="text-base">Hitung Sampah</span>
                 </button>

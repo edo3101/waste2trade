@@ -1,5 +1,6 @@
 import Container from './Container';
 import kopi from '../assets/images/kopi-reward.jpg';
+import { Link } from 'react-router-dom';
 
 export default function CounterExc() {
   return (
@@ -42,17 +43,19 @@ export default function CounterExc() {
                     </button>
                   </div>
                 </div>
-                <a
-                  href="#"
-                  className="w-full lg:w-1/4 btn btn-accent btn-outline rounded-full lg:px-20 text-custom-primary my-20"
-                >
-                  Tukarkan
-                </a>
+                <Link to="/user/berhasil">
+                <button
+                  className="w-full lg:w-1/4 btn btn-accent btn-outline rounded-full lg:px-20 text-custom-primary my-20">Tukarkan
+                  </button>
+                  </Link>
               </div>
             </div>
           </div>
         </div>
+
+
       </Container>
     </section>
+    
   );
 }
