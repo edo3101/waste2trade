@@ -1,14 +1,11 @@
 import Container from './Container';
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-
 
 export default function UserLogin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
 
   const handleInput = (event) => {
     const user = event.target.value;
@@ -27,14 +24,8 @@ export default function UserLogin() {
     });
     const token = response.data.token;
     Cookies.set('auth_token', token);
-    console.log(token);
     window.location.assign('/user/profile');
   };
-
-  console.log(email, password);
-
-
-
 
   return (
     <section className="w-full bg-custom-primary">

@@ -13,7 +13,6 @@ export default function Catalog() {
         Authorization: 'Bearer ' + s,
       },
     });
-    console.log(response);
   };
 
   useEffect(() => {
