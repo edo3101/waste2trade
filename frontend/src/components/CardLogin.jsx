@@ -1,6 +1,6 @@
 import Container from './Container';
 import { Link } from 'react-router-dom';
-import imageLinks from '../constants';
+import { imageLinks } from '../constants';
 
 export default function CardLogin() {
   return (

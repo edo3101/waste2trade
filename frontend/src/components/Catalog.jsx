@@ -1,6 +1,6 @@
 import Container from './Container';
 import { Link } from 'react-router-dom';
-import imageLinks from '../constants';
+import { imageLinks } from '../constants';
 import Cookies from 'js-cookie';
 import { useEffect } from 'react';
 import axios from 'axios';
