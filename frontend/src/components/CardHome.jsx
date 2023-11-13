@@ -1,5 +1,5 @@
 import Container from './Container';
-import imageLinks from '../constants';
+import { imageLinks } from '../constants';
 
 export default function CardHome() {
   return (

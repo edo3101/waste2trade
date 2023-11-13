@@ -1,10 +1,12 @@
 import Container from './Container';
 import { Link } from 'react-router-dom';
+import { imageLinks } from '../constants';
 import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 export default function Catalog() {
+
   const [partnerData, setPartnerData] = useState({});
   const [totalTrashWeight, setTotalTrashWeight] = useState(null);
   const GRAMS_TO_KG = 0.001;
@@ -30,6 +32,13 @@ export default function Catalog() {
     } catch (error) {
       console.error('Error fetching data:', error);
     }
+  const fetchdata = async () => {
+    const s = Cookies.get('auth_token');
+    const response = await axios.get('http://localhost:3000/partner/profile', {
+      headers: {
+        Authorization: 'Bearer ' + s,
+      },
+    });
   };
 
   useEffect(() => {

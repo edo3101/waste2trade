@@ -2,12 +2,10 @@ import { useState } from 'react';
 import Container from './Container';
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import { useNavigate } from 'react-router-dom';
 
 export default function MitraLogin() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
 
   const handleInput = (event) => {
     const user = event.target.value;
@@ -28,9 +26,8 @@ export default function MitraLogin() {
     Cookies.set('auth_token', token);
     console.log(token);
     navigate("/mitra/dashboard");
+    window.location.assign('/mitra/dashboard');
   };
-
-  console.log(username, password);
 
   return (
     <section className="w-full bg-custom-primary">
