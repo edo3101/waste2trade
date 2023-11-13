@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { TukarSampah, Footer } from '../components';
-import axiosInstance from '../utils/axiosInstance';
+import useAxios from '../hooks/useAxios';
 
 export default function TukarSampahMitra() {
   const [formData, setFormData] = useState({
@@ -9,6 +9,8 @@ export default function TukarSampahMitra() {
     trashWeight: 0,
     trashType: '',
   });
+
+  const { axiosInstance } = useAxios();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
