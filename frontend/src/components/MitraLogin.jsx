@@ -27,7 +27,7 @@ export default function MitraLogin() {
     const token = response.data.token;
     Cookies.set('auth_token', token);
     console.log(token);
-    window.location.assign('/mitra/dashboard');
+    navigate("/mitra/dashboard");
   };
 
   console.log(username, password);
