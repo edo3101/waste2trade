@@ -24,6 +24,8 @@ export default function MitraLogin() {
     });
     const token = response.data.token;
     Cookies.set('auth_token', token);
+    console.log(token);
+    navigate("/mitra/dashboard");
     window.location.assign('/mitra/dashboard');
   };
 

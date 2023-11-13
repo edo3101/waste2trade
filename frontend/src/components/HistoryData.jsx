@@ -1,30 +1,55 @@
+import { useEffect, useState } from 'react';
 import Container from './Container';
 import { Link } from 'react-router-dom';
 import { FiSearch } from 'react-icons/fi';
+import axios from 'axios';
+import Cookies from 'js-cookie';
 
 export default function HistoryData() {
+  const [trashSubmitHistory, setTrashSubmitHistory] = useState([]);
+  const GRAMS_TO_KG = 0.001;
+
+  const fetchData = async () => {
+    try {
+      const authToken = Cookies.get('auth_token');
+      const trashSubmitHistoryResponse = await axios.get('http://localhost:3000/partner/trashSubmitHistory', {
+        headers: {
+          Authorization: 'Bearer ' + authToken,
+        },
+      });
+
+      setTrashSubmitHistory(trashSubmitHistoryResponse.data.trashSubmitHistory);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <section>
       <Container>
-        <h2 className="text-3xl font-bold text-center tracking-tighter text-custom-tertiary my-8 lg:mt-16">
+        <h2 className="my-8 text-3xl font-bold tracking-tighter text-center text-custom-tertiary lg:mt-16">
           History Data
         </h2>
         <div className="relative mb-5">
           <input
             type="text"
             placeholder="Search"
-            className="input input-bordered input-accent rounded-full relative w-full lg:w-1/4 text-custom-tertiary"
+            className="relative w-full rounded-full input input-bordered input-accent lg:w-1/4 text-custom-tertiary"
           />
           <Link to="#">
             <FiSearch className="absolute text-2xl -translate-y-9 translate-x-80 lg:translate-x-72 text-custom-tertiary" />
           </Link>
         </div>
-        <div className="overflow-x-auto my-5 lg:my-10">
+        <div className="my-5 overflow-x-auto lg:my-10">
           <table className="table table-md table-pin-rows table-pin-cols text-custom-tertiary">
-            <thead className="text-base text-custom-tertiary font-semibold">
+            <thead className="text-base font-semibold text-custom-tertiary">
               <tr>
                 <th></th>
-                <td>Nama</td>
+                <td>Username</td>
                 <td>No Telpon</td>
                 <td>Jenis</td>
                 <td>Berat</td>
@@ -32,86 +57,16 @@ export default function HistoryData() {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th>1</th>
-                <td>Cy Ganderton</td>
-                <td>Quality Control Specialist</td>
-                <td>Blue</td>
-                <td>Canada</td>
-                <td>12/16/2020</td>
-              </tr>
-              <tr>
-                <th>2</th>
-                <td>Hart Hagerty</td>
-                <td>Desktop Support Technician</td>
-                <td>Purple</td>
-                <td>United States</td>
-                <td>12/5/2020</td>
-              </tr>
-              <tr>
-                <th>3</th>
-                <td>Brice Swyre</td>
-                <td>Tax Accountant</td>
-                <td>Red</td>
-                <td>China</td>
-                <td>8/15/2020</td>
-              </tr>
-              <tr>
-                <th>4</th>
-                <td>Marjy Ferencz</td>
-                <td>Office Assistant I</td>
-                <td>Crimson</td>
-                <td>Russia</td>
-                <td>3/25/2021</td>
-              </tr>
-              <tr>
-                <th>5</th>
-                <td>Yancy Tear</td>
-                <td>Community Outreach Specialist</td>
-                <td>Indigo</td>
-                <td>Brazil</td>
-                <td>5/22/2020</td>
-              </tr>
-              <tr>
-                <th>6</th>
-                <td>Irma Vasilik</td>
-                <td>Editor</td>
-                <td>Purple</td>
-                <td>Venezuela</td>
-                <td>12/8/2020</td>
-              </tr>
-              <tr>
-                <th>7</th>
-                <td>Meghann Durtnal</td>
-                <td>Staff Accountant IV</td>
-                <td>Yellow</td>
-                <td>Philippines</td>
-                <td>2/17/2021</td>
-              </tr>
-              <tr>
-                <th>8</th>
-                <td>Sammy Seston</td>
-                <td>Accountant I</td>
-                <td>Crimson</td>
-                <td>Indonesia</td>
-                <td>5/23/2020</td>
-              </tr>
-              <tr>
-                <th>9</th>
-                <td>Lesya Tinham</td>
-                <td>Safety Technician IV</td>
-                <td>Maroon</td>
-                <td>Philippines</td>
-                <td>2/21/2021</td>
-              </tr>
-              <tr>
-                <th>10</th>
-                <td>Zaneta Tewkesbury</td>
-                <td>VP Marketing</td>
-                <td>Green</td>
-                <td>Chad</td>
-                <td>6/23/2020</td>
-              </tr>
+              {trashSubmitHistory.map((history, index) => (
+                <tr key={history._id}>
+                  <th>{index + 1}</th>
+                  <td>{history.username}</td>
+                  <td>{history.phoneNumber}</td>
+                  <td>{history.trashType}</td>
+                  <td>{history.trashWeight * GRAMS_TO_KG} kg</td>
+                  <td>{new Date(history.submissionDate).toLocaleDateString()}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

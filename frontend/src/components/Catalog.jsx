@@ -2,10 +2,36 @@ import Container from './Container';
 import { Link } from 'react-router-dom';
 import { imageLinks } from '../constants';
 import Cookies from 'js-cookie';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 export default function Catalog() {
+
+  const [partnerData, setPartnerData] = useState({});
+  const [totalTrashWeight, setTotalTrashWeight] = useState(null);
+  const GRAMS_TO_KG = 0.001;
+
+  const fetchData = async () => {
+    try {
+      const authToken = Cookies.get('auth_token');
+      const profileResponse = await axios.get('http://localhost:3000/partner/profile', {
+        headers: {
+          Authorization: 'Bearer ' + authToken,
+        },
+      });
+
+      const totalTrashWeightResponse = await axios.get('http://localhost:3000/partner/totalTrashWeight', {
+        headers: {
+          Authorization: 'Bearer ' + authToken,
+        },
+      });
+
+      setPartnerData(profileResponse.data);
+
+      setTotalTrashWeight(totalTrashWeightResponse.data.totalWeight);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
   const fetchdata = async () => {
     const s = Cookies.get('auth_token');
     const response = await axios.get('http://localhost:3000/partner/profile', {
@@ -16,9 +42,10 @@ export default function Catalog() {
   };
 
   useEffect(() => {
-    fetchdata();
+    fetchData();
   }, []);
 
+  
   return (
     <section>
       <Container>
@@ -36,67 +63,40 @@ export default function Catalog() {
             </li>
           </ul>
         </div>
-        <h2 className="mt-8 mb-4 text-3xl font-bold tracking-tighter lg:mt-14 lg:mb-5 text-custom-tertiary">
-          Hi, Kopi Anton
+        <h2 className="mt-8 text-3xl font-bold tracking-tighter lg:mt-14 lg:mb-5 text-custom-tertiary">
+          Hi, {partnerData.name}
         </h2>
-        <div className="flex flex-col lg:flex-row">
+        <span className="text-lg tracking-tighter label-text text-custom-tertiary">
+          {partnerData.address}
+        </span>
+        <span className="text-lg tracking-tighter label-text text-custom-tertiary">
+          {partnerData.open}
+        </span>
+        <div className="flex flex-col mt-2 lg:flex-row">
           <div className="object-cover w-full lg:basis-1/2">
-            <img className="rounded-2xl" src={imageLinks.coffeshop} alt="" />
+            <img
+              className="rounded-2xl"
+              src={partnerData.image_profile}
+              alt=""
+            />
           </div>
           <div className="w-full p-5 mt-5 form-control card lg:basis-1/4 lg:mt-0 lg:ml-5 bg-custom-primary">
             <h2 className="mb-2 text-2xl font-bold tracking-tighter text-custom-tertiary lg:mb-6">
               Catalog
             </h2>
-            <label className="cursor-pointer label">
-              <span className="text-lg tracking-tighter label-text text-custom-tertiary">
-                Kopi
-              </span>
-              <input
-                type="checkbox"
-                checked="checked"
-                className="checkbox checkbox-accent"
-              />
-            </label>
-            <label className="cursor-pointer label">
-              <span className="text-lg tracking-tighter label-text text-custom-tertiary">
-                Barang A
-              </span>
-              <input
-                type="checkbox"
-                checked="checked"
-                className="checkbox checkbox-accent"
-              />
-            </label>
-            <label className="cursor-pointer label">
-              <span className="text-lg tracking-tighter label-text text-custom-tertiary">
-                Barang B
-              </span>
-              <input
-                type="checkbox"
-                checked="checked"
-                className="checkbox checkbox-accent"
-              />
-            </label>
-            <label className="cursor-pointer label">
-              <span className="text-lg tracking-tighter label-text text-custom-tertiary">
-                Barang C
-              </span>
-              <input
-                type="checkbox"
-                checked="checked"
-                className="checkbox checkbox-accent"
-              />
-            </label>
-            <label className="cursor-pointer label">
-              <span className="text-lg tracking-tighter label-text text-custom-tertiary">
-                Barang D
-              </span>
-              <input
-                type="checkbox"
-                checked="checked"
-                className="checkbox checkbox-accent"
-              />
-            </label>
+            {partnerData.products &&
+              partnerData.products.map((product) => (
+                <label key={product._id} className="cursor-pointer label">
+                  <span className="text-lg tracking-tighter label-text text-custom-tertiary">
+                    {product.product_name}
+                  </span>
+                  <input
+                    type="checkbox"
+                    checked="checked" // You might want to change this based on some condition
+                    className="checkbox checkbox-accent"
+                  />
+                </label>
+              ))}
           </div>
           <div className="flex flex-col lg:ml-5">
             <div className="w-full p-5 mt-5 card lg:basis-1/2 bg-custom-primary lg:mt-0 ">
@@ -107,7 +107,14 @@ export default function Catalog() {
                 Coffe shop anda telah mengumpulkan sampah sebanyak:
               </p>
               <h3 className="text-2xl font-bold tracking-tighter text-custom-tertiary">
-                100kg<span className="text-lg font-normal">/pekan</span>
+                {totalTrashWeight !== null ? (
+                  <>
+                    {totalTrashWeight * GRAMS_TO_KG}
+                    <span className="text-lg font-normal"> kg/pekan</span>
+                  </>
+                ) : (
+                  'Loading...'
+                )}
               </h3>
             </div>
             <div className="mt-5">

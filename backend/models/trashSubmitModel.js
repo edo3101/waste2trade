@@ -5,7 +5,7 @@ const trashSubmitSchema = new mongoose.Schema({
   phoneNumber: String,
   trashWeight: Number,
   trashType: String,
-  submissionDate: { type: Date, default: Date.now },
+  trashDate: { type: Date, default: Date.now },
   partnerId: { type: mongoose.Schema.Types.ObjectId, ref: "Partner" },
 });
 
