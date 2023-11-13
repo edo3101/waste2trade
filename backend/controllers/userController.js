@@ -1,5 +1,6 @@
 const UserService = require("../services/userService");
 const CoffeeShop = require("../models/coffeShop");
+const User = require("../models/userModel")
 
 const userService = new UserService();
 
@@ -22,6 +23,22 @@ async function login(req, res) {
   }
 }
 
+async function profile(req, res) {
+  const {username} = req.body;
+  try {
+    const user = await User.findOne({username});
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.json(user);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+}
+
 async function getCoffeeShop(req, res) {
   try {
     const coffeeShops = await CoffeeShop.find();
@@ -36,4 +53,5 @@ module.exports = {
   signup,
   login,
   getCoffeeShop,
+  profile
 };
