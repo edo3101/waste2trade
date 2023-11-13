@@ -5,37 +5,35 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 const FormRegister = () => {
-    const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const navigate = useNavigate();
-  
-    const handleInput = (event) => {
-      const user = event.target.value;
-      setUsername(user);
-    };
-  
-    const handleMail = (event) => {
-      const mail = event.target.value;
-      setEmail(mail);
-    };
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-    const handlePass = (event) => {
-      const pass = event.target.value;
-      setPassword(pass);
-    };
-  
-    const handleLogin = async () => {
-      const response = await axios.post('http://localhost:3000/user/signup', {
-        username,
-        email,
-        password,
-      });
-   
-      window.location.assign('/');
-    };
-  
-    console.log(username, email, password);
+  const handleInput = (event) => {
+    const user = event.target.value;
+    setUsername(user);
+  };
+
+  const handleMail = (event) => {
+    const mail = event.target.value;
+    setEmail(mail);
+  };
+
+  const handlePass = (event) => {
+    const pass = event.target.value;
+    setPassword(pass);
+  };
+
+  const handleLogin = async () => {
+    const response = await axios.post('http://localhost:3000/user/signup', {
+      username,
+      email,
+      password,
+    });
+
+    window.location.assign('/');
+  };
 
 
   return (
@@ -78,7 +76,7 @@ const FormRegister = () => {
             />
             <Link to="#">
               <button className="w-full lg:w-1/4 btn btn-accent rounded-full lg:px-10 text-custom-primary"
-              onClick={handleLogin}>
+                onClick={handleLogin}>
                 <span className="text-base">Daftar</span>
               </button>
             </Link>
