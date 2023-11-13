@@ -1,15 +1,23 @@
 import Container from './Container';
 import { Link } from 'react-router-dom';
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import { imageLinks } from '../constants';
 >>>>>>> 66b2adb9f5c0125464b2b59e92c7c49acec7670e
+=======
+import { imageLinks } from '../constants';
+>>>>>>> 3892b26283b43f4645e76dd679946fc601e4f203
 import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 export default function Catalog() {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3892b26283b43f4645e76dd679946fc601e4f203
   const [partnerData, setPartnerData] = useState({});
   const [totalTrashWeight, setTotalTrashWeight] = useState(null);
   const GRAMS_TO_KG = 0.001;
@@ -35,7 +43,10 @@ export default function Catalog() {
     } catch (error) {
       console.error('Error fetching data:', error);
     }
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 3892b26283b43f4645e76dd679946fc601e4f203
   const fetchdata = async () => {
     const s = Cookies.get('auth_token');
     const response = await axios.get('http://localhost:3000/partner/profile', {
@@ -43,7 +54,10 @@ export default function Catalog() {
         Authorization: 'Bearer ' + s,
       },
     });
+<<<<<<< HEAD
 >>>>>>> 66b2adb9f5c0125464b2b59e92c7c49acec7670e
+=======
+>>>>>>> 3892b26283b43f4645e76dd679946fc601e4f203
   };
 
   useEffect(() => {
