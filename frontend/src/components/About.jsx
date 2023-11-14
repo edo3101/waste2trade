@@ -92,12 +92,12 @@ export default function About() {
             </div>
           </div>
         </div>
-        <div className="flex justify-center my-10">
+        <div className="flex justify-center my-20">
           <ul className="steps">
             <li className="step  text-custom-tertiary">Kumpulkan sampah</li>
             <li className="step text-custom-tertiary">Pergi ke kedai kopi</li>
-            <li className="step  text-custom-tertiary">Hitung sampah/kg</li>
-            <li className="step  text-custom-tertiary">Tukar poin</li>
+            <li className="step  text-custom-tertiary">Hitung sampah</li>
+            <li className="step  text-custom-tertiary">Tukarkan poinmu!</li>
             <li className="step  text-custom-tertiary">Dapatkan reward-nya!</li>
           </ul>
         </div>
@@ -108,7 +108,7 @@ export default function About() {
             <div className="px-1 py-4">
               <h3 className="font-bold text-2xl font-sans text-custom-tertiary">Tim Waste2Trade</h3>
             </div>
-            <ul className="grid grid-cols-4 gap-2 px-1">
+            <ul className="grid grid-cols-5 gap-2 px-1">
               <li className="flex items-center flex-col">
                 <img src="" alt="" className="rounded-full w-16 h-16 object-cover" />
                 <h5 className="font-semibold text-custom-secondary">Anjas</h5>
@@ -129,7 +129,7 @@ export default function About() {
               </li>
               <li className="flex items-center flex-col">
                 <img src="" alt="" className="rounded-full w-16 h-16 object-cover" />
-                <h5 className="font-semibol text-custom-secondary">Annisa</h5>
+                <h5 className="font-semibold text-custom-secondary">Annisa</h5>
               </li>
             </ul>
           </div>
