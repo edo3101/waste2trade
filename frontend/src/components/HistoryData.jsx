@@ -8,7 +8,6 @@ import Cookies from 'js-cookie';
 export default function HistoryData() {
   const [trashSubmitHistory, setTrashSubmitHistory] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
-  const GRAMS_TO_KG = 0.001;
 
   const fetchData = async () => {
     try {
@@ -31,6 +30,23 @@ export default function HistoryData() {
   useEffect(() => {
     fetchData();
   }, []);
+
+  const GRAMS_TO_KG = (grams) => {
+    const gramsAsNumber = parseFloat(grams);
+
+    if (isNaN(gramsAsNumber)) {
+      return 'Invalid input';
+    }
+
+    const kilograms = gramsAsNumber / 1000;
+
+    if (kilograms % 1 === 0) {
+      return Math.round(kilograms);
+    } else {
+      const formattedKilograms = kilograms.toFixed(2).replace(/\.?0*$/, '');
+      return formattedKilograms;
+    }
+  };
 
   const filteredTrashSubmitHistory = trashSubmitHistory.filter(
     (history) =>
@@ -63,10 +79,10 @@ export default function HistoryData() {
               <tr>
                 <th></th>
                 <td>Username</td>
-                <td>phoneNumber</td>
-                <td>trashType</td>
-                <td>trashWeight</td>
-                <td>submissionDate</td>
+                <td>No Telpon</td>
+                <td>Jenis</td>
+                <td>Berat</td>
+                <td>Tanggal</td>
               </tr>
             </thead>
             <tbody>
@@ -76,8 +92,8 @@ export default function HistoryData() {
                   <td>{history.username}</td>
                   <td>{history.phoneNumber}</td>
                   <td>{history.trashType}</td>
-                  <td>{history.trashWeight * GRAMS_TO_KG} kg</td>
-                  <td>{new Date(history.submissionDate).toLocaleDateString()}</td>
+                  <td>{GRAMS_TO_KG(history.trashWeight)} kg</td>
+                  <td>{new Date(history.trashDate).toLocaleDateString()}</td>
                 </tr>
               ))}
             </tbody>
