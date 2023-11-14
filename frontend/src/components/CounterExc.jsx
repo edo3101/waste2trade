@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import kopi from '../assets/images/kopi-reward.jpg';
 import Container from './Container';
@@ -28,14 +28,14 @@ const Counter = () => {
             <div className="py-12 p-10 bg-custom-primary">
               <div className="mb-6 text-center">
                 <img
-                  className="object-cover h-20 w-20 rounded-full mx-auto"
+                  className="object-cover h-32 w-32 rounded-full mx-auto"
                   src={kopi}
                   alt=""
                 />
                 <div className="custom-number-input h-10 w-32 mx-auto">
                   <label
                     htmlFor="custom-input-number"
-                    className="w-full text-custom-secondary text-sm font-semibold"
+                    className="w-full lg:mt-5 text-custom-secondary text-base font-semibold"
                   >
                     Jumlah
                   </label>
@@ -63,7 +63,7 @@ const Counter = () => {
                 </div>
                 <Link to="/user/berhasil">
                   <button
-                    className="w-full lg:w-1/4 btn btn-accent btn-outline rounded-full lg:px-20 text-custom-primary my-20"
+                    className="w-1/2 lg:w-1/3 btn btn-accent btn-outline rounded-full lg:px-20 text-custom-primary my-20"
                   >
                     Tukarkan
                   </button>
