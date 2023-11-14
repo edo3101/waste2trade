@@ -12,7 +12,7 @@ export default function Hero() {
           </div>
           <div className="self-center lg:w-1/2 lg:my-20">
             <h1 className="text-3xl lg:text-6xl font-bold text-custom-tertiary mt-5 tracking-tighter">
-              Let's Trade <span className="lg:block">Your Waste</span>
+              Let's<span style={{ color: '#1B8D73' }}> trade</span> your<span className="text-custom-secondary"> waste</span> !
             </h1>
             <p className="text-md lg:text-xl my-5 lg:my-6 text-custom-tertiary">
               Exchange your trash

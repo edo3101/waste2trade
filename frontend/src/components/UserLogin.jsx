@@ -27,6 +27,11 @@ export default function UserLogin() {
     window.location.assign('/user/profile');
   };
 
+  const handleLogout = () => {
+    Cookies.remove('auth_token');
+    window.location.assign('/auth/login');
+  };
+
   return (
     <section className="w-full bg-custom-primary">
       <Container className="py-5 lg:px-5">

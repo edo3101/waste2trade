@@ -32,7 +32,7 @@ const Counter = () => {
                   src={kopi}
                   alt=""
                 />
-                <div className="custom-number-input h-10 w-32 mx-auto">
+                <div className="custom-number-input h-10 w-32 mx-auto my-5">
                   <label
                     htmlFor="custom-input-number"
                     className="w-full lg:mt-5 text-custom-secondary text-base font-semibold"
@@ -42,20 +42,20 @@ const Counter = () => {
                   <div className="flex flex-row h-10 w-full rounded-lg relative bg-transparent my-5">
                     <button
                       onClick={decreaseCount}
-                      className="bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-l cursor-pointer outline-none"
+                      className="bg-custom-tertiary text-white hover:text-white hover:bg-custom-tertiary h-full w-20 rounded-l cursor-pointer outline-none"
                     >
                       <span className="m-auto text-2xl font-thin">−</span>
                     </button>
                     <input
                       type="number"
-                      className="focus:outline-none text-center w-full bg-gray-300 font-semibold text-md hover:text-black focus:text-black md:text-base cursor-default flex items-center text-gray-700 outline-none"
+                      className="focus:outline-none text-center w-full bg-custom-tertiary font-semibold text-md hover:text-white focus:text-white md:text-base cursor-default flex items-center text-white outline-none"
                       name="custom-input-number"
                       value={count}
                       readOnly
                     />
                     <button
                       onClick={increaseCount}
-                      className="bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-r cursor-pointer"
+                      className="bg-custom-tertiary text-white hover:text-white hover:bg-custom-tertiary h-full w-20 rounded-r cursor-pointer"
                     >
                       <span className="m-auto text-2xl font-thin">+</span>
                     </button>

@@ -31,6 +31,25 @@ export default function UserProfile() {
     fetchData();
   }, []);
 
+  const [claimStatus, setClaimStatus] = useState(null);
+  const claimGiftCode = async () => {
+    try {
+      const authToken = Cookies.get('auth_token');
+      const claimResponse = await axios.post('http://localhost:3000/user/redeemcode', {}, {
+        headers: {
+          Authorization: 'Bearer ' + authToken,
+        },
+      });
+  
+      setClaimStatus(claimResponse.data.message);
+      fetchData();
+    } catch (error) {
+      console.error('Error claiming gift code:', error);
+      setClaimStatus('Failed to claim gift code');
+    }
+  };
+
+
   return (
     <section className="py-10 md:py-16 bg-custom-primary">
       <Container>
@@ -57,12 +76,18 @@ export default function UserProfile() {
             <h6 className="mb-8 text-lg font-medium uppercase text-custom-secondary md:text-2xl">
               Poin Terkumpul: {userData.points}
             </h6>
-            <a
-              href="#"
-              className="w-full mb-5 rounded-full lg:w-1/4 btn btn-accent btn-outline lg:px-20 text-custom-primary"
-            >
+            <div className="text-center">
+            {claimStatus && (
+              <p className={claimStatus.includes('Success') ? 'text-green-500' : 'text-red-500'}>
+                {claimStatus}
+              </p>
+            )}
+            <button
+              onClick={claimGiftCode}
+              className="w-full mb-5 rounded-full lg:w-1/4 btn btn-accent btn-outline lg:px-20 text-custom-primary">
               Claim Giftcode
-            </a>
+            </button>
+          </div>
           </div>
         </div>
         <div className="container items-center max-w-screen-xl px-4 mx-auto">
@@ -77,12 +102,12 @@ export default function UserProfile() {
                   src={kopi}
                   alt=""
                 />
-              </div>
+              </div >
               <Link to={'/user/tukar'}>
-                <h4 className="mb-4 text-lg font-medium text-custom-tertiary">
+                <h4 className="mb-4 text-lg font-medium text-center text-custom-tertiary">
                   Kopi Gula Aren
                 </h4>
-                <h4 className="mb-4 text-lg font-medium text-custom-tertiary">
+                <h4 className="mb-4 text-lg font-medium text-center text-custom-tertiary">
                   5 Poin
                 </h4>
               </Link>
@@ -96,12 +121,14 @@ export default function UserProfile() {
                   alt=""
                 />
               </div>
-              <h4 className="mb-4 text-lg font-medium text-custom-tertiary">
+              <Link to={'/user/tukar'}>
+              <h4 className="mb-4 text-lg font-medium text-center text-custom-tertiary">
                 Tote Bag
               </h4>
-              <h4 className="mb-4 text-lg font-medium text-custom-tertiary">
+              <h4 className="mb-4 text-lg font-medium text-center text-custom-tertiary">
                 15 Poin
               </h4>
+              </Link>
             </div>
 
             <div className="flex flex-col items-center px-8 py-10 rounded-md bg-gray-50">
@@ -112,12 +139,14 @@ export default function UserProfile() {
                   alt=""
                 />
               </div>
-              <h4 className="mb-4 text-lg font-medium text-custom-tertiary">
+              <Link to={'/user/tukar'}>
+              <h4 className="mb-4 text-lg text-center font-medium text-custom-tertiary">
                 Tumbler
               </h4>
-              <h4 className="mb-4 text-lg font-medium text-custom-tertiary">
+              <h4 className="mb-4 text-lg text-center font-medium text-custom-tertiary">
                 30 Poin
               </h4>
+              </Link>
             </div>
           </div>
         </div>

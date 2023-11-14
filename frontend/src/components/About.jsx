@@ -3,12 +3,17 @@ import w2tImage from '../assets/images/w2t-hero.png';
 import edukasi from '../assets/images/edukasi.png';
 import kesadaran from '../assets/images/kesadaran.png';
 import kolaborasi from '../assets/images/kolaborasi.png';
+import anjas from '../assets/images/anjas.png';
+import annisa from '../assets/images/annisa.png';
+import edo from '../assets/images/edo.png';
+import fandi from '../assets/images/fandi.png';
+import garuda from '../assets/images/garuda.png';
 
 export default function About() {
   return (
     <section className="py-10">
       <Container>
-        <h2 className="text-2xl lg:text-4xl lg:mt-20 font-bold text-center text-custom-tertiary tracking-tighter">
+        <h2 className="text-2xl lg:text-4xl lg:mt-10 font-bold text-center text-custom-tertiary tracking-tighter">
           Tentang Kami
         </h2>
         <div className="flex flex-col lg:flex-row">
@@ -35,7 +40,7 @@ export default function About() {
         </div>
 
         <div className="container max-w-screen-xl mx-auto px-4">
-          <h1 className="font-medium text-custom-secondary text-lg md:text-2xl uppercase my-8">
+          <h1 className="font-medium text-custom-secondary text-lg md:text-2xl uppercase my-8 ml-10">
             MISI KAMI UNTUK GENERASI MUDA
           </h1>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -92,43 +97,49 @@ export default function About() {
             </div>
           </div>
         </div>
-        <div className="flex justify-center my-20">
-          <ul className="steps">
-            <li className="step  text-custom-tertiary">Kumpulkan sampah</li>
-            <li className="step text-custom-tertiary">Pergi ke kedai kopi</li>
-            <li className="step  text-custom-tertiary">Hitung sampah</li>
-            <li className="step  text-custom-tertiary">Tukarkan poinmu!</li>
-            <li className="step  text-custom-tertiary">Dapatkan reward-nya!</li>
-          </ul>
-        </div>
+        <div className="flex flex-col md:flex-row items-center justify-center mt-10 mb-10">
+  <h1 className="font-medium text-custom-secondary text-lg md:text-2xl uppercase my-8 md:mr-10">
+    CARA KERJA
+    <br />
+    WASTE2TRADE
+  </h1>
+  <ul className="steps md:ml-10">
+    <li className="step text-custom-tertiary mb-2 md:mb-0">Kumpulkan sampah</li>
+    <li className="step text-custom-tertiary mb-2 md:mb-0">Pergi ke kedai kopi</li>
+    <li className="step text-custom-tertiary mb-2 md:mb-0">Hitung sampah</li>
+    <li className="step text-custom-tertiary mb-2 md:mb-0">Tukarkan poinmu!</li>
+    <li className="step text-custom-tertiary mb-2 md:mb-0">Dapatkan reward!</li>
+  </ul>
+</div>
+
 
         {/** TEAM PROFILE */}
-        <div className="flex h-screen items-center justify-center bg-gray-50">
+        <div className="flex items-center justify-center bg-custom-tertiary">
           <div className="w-full md:w-1/2 rounded-lg bg-white px-8 py-4 shadow-md m-4">
             <div className="px-1 py-4">
-              <h3 className="font-bold text-2xl font-sans text-custom-tertiary">Tim Waste2Trade</h3>
+              <h3 className="font-bold text-2xl font-sans text-center text-custom-tertiary">Tim Waste2Trade</h3>
             </div>
             <ul className="grid grid-cols-5 gap-2 px-1">
               <li className="flex items-center flex-col">
-                <img src="" alt="" className="rounded-full w-16 h-16 object-cover" />
+                <img src={anjas} alt="" className="rounded-full w-16 h-16 object-cover" />
                 <h5 className="font-semibold text-custom-secondary">Anjas</h5>
               </li>
               <li className="flex items-center flex-col">
-                <img src="" alt="" className="rounded-full w-16 h-16 object-cover" />
+                <img src={edo} alt="" className="rounded-full w-16 h-16 object-cover" />
                 <h5 className="font-semibold text-custom-secondary">Edo</h5>
               </li>
               <li className="flex items-center flex-col">
-                <img src="" alt="" className="rounded-full w-16 h-16 object-cover" />
+                <img src={fandi} alt="" className="rounded-full w-16 h-16 object-cover" />
                 <h5 className="font-semibold text-custom-secondary">Fandi</h5>
               </li>
               <li>
                 <li className="flex items-center flex-col">
-                  <img src="" alt="" className="rounded-full w-16 h-16 object-cover" />
+                  <img src={garuda} alt="" className="rounded-full w-16 h-16 object-cover" />
                   <h5 className="font-semibold text-custom-secondary">Garuda</h5>
                 </li>
               </li>
               <li className="flex items-center flex-col">
-                <img src="" alt="" className="rounded-full w-16 h-16 object-cover" />
+                <img src={annisa} alt="" className="rounded-full w-16 h-16 object-cover" />
                 <h5 className="font-semibold text-custom-secondary">Annisa</h5>
               </li>
             </ul>
