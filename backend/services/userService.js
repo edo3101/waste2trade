@@ -42,7 +42,7 @@ class UserService {
       throw new Error("Invalid email or password");
     }
 
-    const token = jwt.sign({ userId: user._id }, config.secretKey, {
+    const token = jwt.sign({ email: user.email }, config.secretKey, {
       expiresIn: "1h",
     });
 
