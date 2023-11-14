@@ -38,6 +38,24 @@ async function profile(req, res) {
     }
 };
 
+async function giftcode(req, res) {
+  try {
+    const target = await User.findOne({ email: req.data.email});
+    const updatePoin = { $set: { points: 1000 } };
+
+    const user = await User.updateOne(target, {updatePoin})
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.json(user);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
 async function getCoffeeShop(req, res) {
   try {
     const coffeeShops = await CoffeeShop.find();
@@ -52,5 +70,6 @@ module.exports = {
   signup,
   login,
   getCoffeeShop,
-  profile
+  profile,
+  giftcode
 };
