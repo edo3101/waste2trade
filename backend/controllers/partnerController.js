@@ -119,7 +119,6 @@ exports.submitTrash = async (req, res) => {
       phoneNumber,
       trashWeight,
       trashType,
-      trashDate,
       partnerId: req.partner._id,
     });
 
