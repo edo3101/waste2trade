@@ -7,22 +7,42 @@ import axios from 'axios';
 export default function Catalog() {
   const [partnerData, setPartnerData] = useState({});
   const [totalTrashWeight, setTotalTrashWeight] = useState(null);
-  const GRAMS_TO_KG = 0.001;
+  const GRAMS_TO_KG = (grams) => {
+    const gramsAsNumber = parseFloat(grams);
 
+    if (isNaN(gramsAsNumber)) {
+      return 'Invalid input';
+    }
+
+    const kilograms = gramsAsNumber / 1000;
+
+    if (kilograms % 1 === 0) {
+      return Math.round(kilograms);
+    } else {
+      const formattedKilograms = kilograms.toFixed(2).replace(/\.?0*$/, '');
+      return formattedKilograms;
+    }
+  };
   const fetchData = async () => {
     try {
       const authToken = Cookies.get('auth_token');
-      const profileResponse = await axios.get('http://localhost:3000/partner/profile', {
-        headers: {
-          Authorization: 'Bearer ' + authToken,
-        },
-      });
+      const profileResponse = await axios.get(
+        'http://localhost:3000/partner/profile',
+        {
+          headers: {
+            Authorization: 'Bearer ' + authToken,
+          },
+        }
+      );
 
-      const totalTrashWeightResponse = await axios.get('http://localhost:3000/partner/totalTrashWeight', {
-        headers: {
-          Authorization: 'Bearer ' + authToken,
-        },
-      });
+      const totalTrashWeightResponse = await axios.get(
+        'http://localhost:3000/partner/totalTrashWeight',
+        {
+          headers: {
+            Authorization: 'Bearer ' + authToken,
+          },
+        }
+      );
 
       setPartnerData(profileResponse.data);
 
@@ -36,7 +56,6 @@ export default function Catalog() {
     fetchData();
   }, []);
 
-  
   return (
     <section>
       <Container>
@@ -57,11 +76,13 @@ export default function Catalog() {
         <h2 className="mt-8 text-3xl font-bold tracking-tighter lg:mt-14 lg:mb-5 text-custom-tertiary">
           Hi, {partnerData.name}
         </h2>
+        <h3 className='font-bold text-custom-tertiary'>Alamat</h3>
         <span className="text-lg tracking-tighter label-text text-custom-tertiary">
           {partnerData.address}
         </span>
+        <h3 className='mt-2 font-bold text-custom-tertiary'>Buka pukul:</h3>
         <span className="text-lg tracking-tighter label-text text-custom-tertiary">
-          {partnerData.open}
+          {partnerData.openhours} WIB
         </span>
         <div className="flex flex-col mt-2 lg:flex-row">
           <div className="object-cover w-full lg:basis-1/2">
@@ -100,7 +121,7 @@ export default function Catalog() {
               <h3 className="text-2xl font-bold tracking-tighter text-custom-tertiary">
                 {totalTrashWeight !== null ? (
                   <>
-                    {totalTrashWeight * GRAMS_TO_KG}
+                    {GRAMS_TO_KG(totalTrashWeight)}
                     <span className="text-lg font-normal"> kg/pekan</span>
                   </>
                 ) : (
