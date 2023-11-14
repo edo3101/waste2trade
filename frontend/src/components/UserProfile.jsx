@@ -3,9 +3,34 @@ import kopi from '../assets/images/kopi-reward.jpg';
 import totebag from '../assets/images/totebag-reward.jpg';
 import tumbler from '../assets/images/tumbler-reward.jpg';
 import w2tProfile from '../assets/images/ProfileUser.jpg';
+import Cookies from 'js-cookie';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 export default function UserProfile() {
+  const [userData, setUserData] = useState({});
+
+  const fetchData = async () => {
+    try {
+      const authToken = Cookies.get('auth_token');
+      const profileResponse = await axios.get('http://localhost:3000/user/profile', {
+        headers: {
+          Authorization: 'Bearer ' + authToken,
+        },
+      });
+
+      setUserData(profileResponse.data);
+
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <section className="py-10 md:py-16 bg-custom-primary">
       <Container>
@@ -26,25 +51,17 @@ export default function UserProfile() {
             </div>
 
             <h6 className="mb-8 text-lg font-medium uppercase text-custom-secondary md:text-2xl">
-              Jane Doe
+            {userData.username}
             </h6>
 
             <h6 className="mb-8 text-lg font-medium uppercase text-custom-secondary md:text-2xl">
-              Umur: 16
-            </h6>
-
-            <h6 className="mb-8 text-lg font-medium uppercase text-custom-secondary md:text-2xl">
-              Domisili: Jakarta
-            </h6>
-
-            <h6 className="mb-8 text-lg font-medium uppercase text-custom-secondary md:text-2xl">
-              Poin Terkumpul: 1010
+              Poin Terkumpul: {userData.points}
             </h6>
             <a
               href="#"
               className="w-full mb-5 rounded-full lg:w-1/4 btn btn-accent btn-outline lg:px-20 text-custom-primary"
             >
-              Scan Barcode
+              Claim Giftcode
             </a>
           </div>
         </div>
