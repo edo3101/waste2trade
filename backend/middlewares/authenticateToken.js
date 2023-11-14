@@ -24,10 +24,19 @@ function authenticateToken(req, res, next) {
 
 function authenticateTokenUser(req, res, next) {
   const token = req.headers.authorization.split(" ")[1];
-  if (token== null) return res.sendStatus(401);
-  jwt.verify(token, config.secretKey, async (err, user) => {
-    if(err)return res.sendStatus(403);
-    req.email = user.email;
+  jwt.verify(token, config.secretKey, async (err, data) => {
+    if (err) {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+
+    const user = await User.findOne({ email: data.email });
+    if (!user) {
+      return res.status(403).json({ message: "Unauthorized h" });
+    }
+
+    req.data = data;
+    req.user = user;
+
     next();
   });
 }
