@@ -59,14 +59,14 @@ export default function TukarSampah({
           </div>
           <div className="mb-1">
             <label className="block mb-2 text-sm font-semibold text-custom-tertiary">
-              Berat Sampah (kg)
+              Berat Sampah (gram)
             </label>
             <input
               type="number"
               name="trashWeight"
               value={formData.trashWeight}
               onChange={handleInputChange}
-              placeholder="(kg)"
+              placeholder="(gram)"
               className="w-full border-2 border-custom-secondary input input-bordered text-custom-tertiary"
             />
           </div>
