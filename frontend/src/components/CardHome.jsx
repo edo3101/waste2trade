@@ -18,7 +18,7 @@ export default function CardHome() {
             </figure>
             <div className="card-body text-custom-tertiary">
               <h2 className="card-title">User</h2>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+              <p>Bergabung bersama kami sebagai agen perubahan, yuk!</p>
             </div>
           </div>
           <div className="divider lg:divider-horizontal text-custom-tertiary">
@@ -31,7 +31,7 @@ export default function CardHome() {
             <div className="card-body text-custom-primary">
               <h2 className="card-title">Mitra</h2>
               <p>
-                Culpa, molestias odit illum quae consectetur necessitatibus.
+                Bergabung bersama kami sebagai partner perubahan, yuk!
               </p>
             </div>
           </div>
