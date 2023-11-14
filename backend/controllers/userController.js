@@ -41,9 +41,63 @@ async function profile(req, res) {
 async function giftcode(req, res) {
   try {
     const target = await User.findOne({ email: req.data.email});
-    const updatePoin = { $set: { points: 1000 } };
+    const updatePoin = { $inc: { points: 1000 } };
 
-    const user = await User.updateOne(target, {updatePoin})
+    const user = await User.updateOne(target, updatePoin)
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.json(user);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+async function redeemkopi(req, res) {
+  try {
+    const target = await User.findOne({ email: req.data.email});
+    const updatePoin = { $inc: { points: -5 } };
+
+    const user = await User.updateOne(target, updatePoin)
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.json(user);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+async function redeembag(req, res) {
+  try {
+    const target = await User.findOne({ email: req.data.email});
+    const updatePoin = { $inc: { points: -15 } };
+
+    const user = await User.updateOne(target, updatePoin)
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.json(user);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+async function redeemtumbler(req, res) {
+  try {
+    const target = await User.findOne({ email: req.data.email});
+    const updatePoin = { $inc: { points: -30 } };
+
+    const user = await User.updateOne(target, updatePoin)
 
     if (!user) {
       return res.status(404).json({ message: "User not found" });
@@ -71,5 +125,8 @@ module.exports = {
   login,
   getCoffeeShop,
   profile,
-  giftcode
+  giftcode,
+  redeemkopi,
+  redeembag,
+  redeemtumbler
 };
