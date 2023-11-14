@@ -7,16 +7,20 @@ import Cookies from 'js-cookie';
 
 export default function HistoryData() {
   const [trashSubmitHistory, setTrashSubmitHistory] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
   const GRAMS_TO_KG = 0.001;
 
   const fetchData = async () => {
     try {
       const authToken = Cookies.get('auth_token');
-      const trashSubmitHistoryResponse = await axios.get('http://localhost:3000/partner/trashSubmitHistory', {
-        headers: {
-          Authorization: 'Bearer ' + authToken,
-        },
-      });
+      const trashSubmitHistoryResponse = await axios.get(
+        'http://localhost:3000/partner/trashSubmitHistory',
+        {
+          headers: {
+            Authorization: 'Bearer ' + authToken,
+          },
+        }
+      );
 
       setTrashSubmitHistory(trashSubmitHistoryResponse.data.trashSubmitHistory);
     } catch (error) {
@@ -27,6 +31,13 @@ export default function HistoryData() {
   useEffect(() => {
     fetchData();
   }, []);
+
+  const filteredTrashSubmitHistory = trashSubmitHistory.filter(
+    (history) =>
+      history.username.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      history.phoneNumber.includes(searchQuery) ||
+      history.trashType.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <section>
@@ -39,6 +50,8 @@ export default function HistoryData() {
             type="text"
             placeholder="Search"
             className="relative w-full rounded-full input input-bordered input-accent lg:w-1/4 text-custom-tertiary"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
           />
           <Link to="#">
             <FiSearch className="absolute text-2xl -translate-y-9 translate-x-80 lg:translate-x-72 text-custom-tertiary" />
@@ -50,14 +63,14 @@ export default function HistoryData() {
               <tr>
                 <th></th>
                 <td>Username</td>
-                <td>No Telpon</td>
-                <td>Jenis</td>
-                <td>Berat</td>
-                <td>Tanggal</td>
+                <td>phoneNumber</td>
+                <td>trashType</td>
+                <td>trashWeight</td>
+                <td>submissionDate</td>
               </tr>
             </thead>
             <tbody>
-              {trashSubmitHistory.map((history, index) => (
+              {filteredTrashSubmitHistory.map((history, index) => (
                 <tr key={history._id}>
                   <th>{index + 1}</th>
                   <td>{history.username}</td>

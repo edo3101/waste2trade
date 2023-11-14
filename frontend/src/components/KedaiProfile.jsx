@@ -1,14 +1,13 @@
 import Container from './Container';
 import kopigigih from '../assets/images/kopigigih.jpg';
-import { Link } from 'react-router-dom';
 
 export default function KedaiProfile() {
   return (
     <section>
       <Container>
-        <div className="grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 flex flex-col items-center">
-          <div className="bg-gray-50 px-8 py-10 rounded-md flex flex-col items-center">
-            <div className="w-200 py-6 flex justify-center bg-gray-50 rounded-md mb-4">
+        <div className="flex flex-col items-center grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="flex flex-col items-center px-8 py-10 rounded-md bg-gray-50">
+            <div className="flex justify-center py-6 mb-4 rounded-md w-200 bg-gray-50">
               <img
                 className="object-cover aspect-square"
                 src={kopigigih}
@@ -16,7 +15,7 @@ export default function KedaiProfile() {
               />
             </div>
 
-            <h4 className="font-medium text-custom-tertiary text-lg mb-4">
+            <h4 className="mb-4 text-lg font-medium text-custom-tertiary">
               KEDAI KOPI GIGIH
             </h4>
 

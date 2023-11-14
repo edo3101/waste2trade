@@ -8,62 +8,61 @@ export default function RewardExc() {
   return (
     <section>
       <Container>
-        <div className="container max-w-screen-xl mx-auto px-4 items-center">
-          <h1 className="font-medium text-custom-secondary text-lg md:text-2xl uppercase my-8">
+        <div className="container items-center max-w-screen-xl px-4 mx-auto">
+          <h1 className="my-8 text-lg font-medium uppercase text-custom-secondary md:text-2xl">
             TUKARKAN POINMU!
           </h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-gray-50 px-8 py-10 rounded-md flex flex-col items-center">
-              <div className="w-20 py-6 flex justify-center bg-gray-50 rounded-md mb-4">
-
-              <Link to="/user/tukar">
-                <img
-                  className="object-cover aspect-square h-50 w-50 rounded-md"
-                  src={kopi}
-                  alt=""
-                />
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="flex flex-col items-center px-8 py-10 rounded-md bg-gray-50">
+              <div className="flex justify-center w-20 py-6 mb-4 rounded-md bg-gray-50">
+                <Link to="/user/tukar">
+                  <img
+                    className="object-cover rounded-md aspect-square h-50 w-50"
+                    src={kopi}
+                    alt=""
+                  />
                 </Link>
               </div>
               <Link to="/user/tukar">
-              <h4 className="font-medium text-custom-tertiary text-lg mb-4">
-                Kopi Gula Aren
-              </h4>
+                <h4 className="mb-4 text-lg font-medium text-custom-tertiary">
+                  Kopi Gula Aren
+                </h4>
               </Link>
               <Link to="/user/tukar">
-              <h4 className="font-medium text-custom-tertiary text-lg mb-4">
-                5 Poin
-              </h4>
+                <h4 className="mb-4 text-lg font-medium text-custom-tertiary">
+                  5 Poin
+                </h4>
               </Link>
             </div>
 
-            <div className="bg-gray-50 px-8 py-10 rounded-md flex flex-col items-center">
-              <div className="w-20 py-6 flex justify-center bg-gray-50 rounded-md mb-4">
+            <div className="flex flex-col items-center px-8 py-10 rounded-md bg-gray-50">
+              <div className="flex justify-center w-20 py-6 mb-4 rounded-md bg-gray-50">
                 <img
-                  className="object-cover aspect-square h-50 w-50 rounded-md"
+                  className="object-cover rounded-md aspect-square h-50 w-50"
                   src={totebag}
                   alt=""
                 />
               </div>
-              <h4 className="font-medium text-custom-tertiary text-lg mb-4">
+              <h4 className="mb-4 text-lg font-medium text-custom-tertiary">
                 Tote Bag
               </h4>
-              <h4 className="font-medium text-custom-tertiary text-lg mb-4">
+              <h4 className="mb-4 text-lg font-medium text-custom-tertiary">
                 15 Poin
               </h4>
             </div>
 
-            <div className="bg-gray-50 px-8 py-10 rounded-md flex flex-col items-center">
-              <div className="w-20 py-6 flex justify-center bg-gray-50 rounded-md mb-4">
+            <div className="flex flex-col items-center px-8 py-10 rounded-md bg-gray-50">
+              <div className="flex justify-center w-20 py-6 mb-4 rounded-md bg-gray-50">
                 <img
-                  className="object-cover aspect-square h-50 w-50 rounded-md"
+                  className="object-cover rounded-md aspect-square h-50 w-50"
                   src={tumbler}
                   alt=""
                 />
               </div>
-              <h4 className="font-medium text-custom-tertiary text-lg mb-4">
+              <h4 className="mb-4 text-lg font-medium text-custom-tertiary">
                 Tumbler
               </h4>
-              <h4 className="font-medium text-custom-tertiary text-lg mb-4">
+              <h4 className="mb-4 text-lg font-medium text-custom-tertiary">
                 30 Poin
               </h4>
             </div>

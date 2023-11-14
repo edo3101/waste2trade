@@ -24,15 +24,15 @@ export default function TukarSampah({
             </li>
           </ul>
         </div>
-        <h2 className="text-3xl font-bold text-center tracking-tighter text-custom-tertiary my-6 lg:mt-0">
+        <h2 className="my-6 text-3xl font-bold tracking-tighter text-center text-custom-tertiary lg:mt-0">
           Hitung Sampah
         </h2>
         <form
           onSubmit={handleTrashSubmit}
-          className="card border-2 p-6 mx-auto lg:w-1/2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 lg:mb-4 gap-4"
+          className="grid grid-cols-1 gap-4 p-6 mx-auto border-2 card lg:w-1/2 md:grid-cols-2 lg:grid-cols-1 lg:mb-4"
         >
           <div className="mb-1">
-            <label className="block text-sm font-semibold text-custom-tertiary mb-2">
+            <label className="block mb-2 text-sm font-semibold text-custom-tertiary">
               Nama
             </label>
             <input
@@ -41,11 +41,11 @@ export default function TukarSampah({
               value={formData.username}
               onChange={handleInputChange}
               placeholder="Ketik nama user"
-              className="border-2 border-custom-secondary input input-bordered w-full text-custom-tertiary"
+              className="w-full border-2 border-custom-secondary input input-bordered text-custom-tertiary"
             />
           </div>
           <div className="mb-1">
-            <label className="block text-sm font-semibold text-custom-tertiary mb-2">
+            <label className="block mb-2 text-sm font-semibold text-custom-tertiary">
               No. HP
             </label>
             <input
@@ -54,11 +54,11 @@ export default function TukarSampah({
               value={formData.phoneNumber}
               onChange={handleInputChange}
               placeholder="Ketik nomor user"
-              className="border-2 border-custom-secondary input input-bordered w-full text-custom-tertiary"
+              className="w-full border-2 border-custom-secondary input input-bordered text-custom-tertiary"
             />
           </div>
           <div className="mb-1">
-            <label className="block text-sm font-semibold text-custom-tertiary mb-2">
+            <label className="block mb-2 text-sm font-semibold text-custom-tertiary">
               Berat Sampah (kg)
             </label>
             <input
@@ -67,18 +67,18 @@ export default function TukarSampah({
               value={formData.trashWeight}
               onChange={handleInputChange}
               placeholder="(kg)"
-              className="border-2 border-custom-secondary input input-bordered w-full text-custom-tertiary"
+              className="w-full border-2 border-custom-secondary input input-bordered text-custom-tertiary"
             />
           </div>
           <div className="mb-1">
-            <label className="block text-sm font-semibold text-custom-tertiary mb-2">
+            <label className="block mb-2 text-sm font-semibold text-custom-tertiary">
               Jenis Sampah
             </label>
             <select
               name="trashType"
               value={formData.trashType}
               onChange={handleInputChange}
-              className="text-custom-tertiary text-base border-2 border-custom-secondary select select-accent w-full"
+              className="w-full text-base border-2 text-custom-tertiary border-custom-secondary select select-accent"
             >
               <option value="">Pilih Jenis Sampahmu!</option>
               <option value="plastik">Plastik</option>
@@ -90,7 +90,7 @@ export default function TukarSampah({
           </div>
           <button
             type="submit"
-            className="w-full btn btn-accent btn-outline border-2 rounded-full text-custom-primary"
+            className="w-full border-2 rounded-full btn btn-accent btn-outline text-custom-primary"
           >
             Submit
           </button>

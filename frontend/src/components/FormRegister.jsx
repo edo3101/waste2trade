@@ -32,17 +32,17 @@ const FormRegister = () => {
       password,
     });
 
-    window.location.assign('/');
+    navigate('/');
   };
 
 
   return (
     <section className="mt-8 lg:mt-10">
       <Container>
-        <h2 className="text-2xl lg:text-4xl font-bold lg:mb-4 tracking-tighter text-center text-custom-tertiary">
+        <h2 className="text-2xl font-bold tracking-tighter text-center lg:text-4xl lg:mb-4 text-custom-tertiary">
           Yuk, Daftar!
         </h2>
-        <div className="form-control card bg-white shadow-xl p-7 lg:my-5 w-full text-custom-tertiary">
+        <div className="w-full bg-white shadow-xl form-control card p-7 lg:my-5 text-custom-tertiary">
           <form action="">
             <label className="label">
               <span className="label-text">Email</span>
@@ -50,7 +50,7 @@ const FormRegister = () => {
             <input
               type="text"
               placeholder="Masukkan Email"
-              className="input input-bordered input-accent w-full mb-4"
+              className="w-full mb-4 input input-bordered input-accent"
               required
               onChange={handleMail}
             />
@@ -60,7 +60,7 @@ const FormRegister = () => {
             <input
               type="text"
               placeholder="Masukkan Username"
-              className="input input-bordered input-accent w-full mb-4"
+              className="w-full mb-4 input input-bordered input-accent"
               required
               onChange={handleInput}
             />
@@ -70,12 +70,12 @@ const FormRegister = () => {
             <input
               type="password"
               placeholder="Masukkan Password"
-              className="input input-bordered input-accent w-full mb-8"
+              className="w-full mb-8 input input-bordered input-accent"
               required
               onChange={handlePass}
             />
             <Link to="#">
-              <button className="w-full lg:w-1/4 btn btn-accent rounded-full lg:px-10 text-custom-primary"
+              <button className="w-full rounded-full lg:w-1/4 btn btn-accent lg:px-10 text-custom-primary"
                 onClick={handleLogin}>
                 <span className="text-base">Daftar</span>
               </button>
