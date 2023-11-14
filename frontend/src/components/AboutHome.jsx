@@ -18,9 +18,8 @@ export default function Hero() {
               Waste2Trade<span className="lg:block"> Indonesia</span>
             </h1>
             <p className="my-5 text-md lg:text-base lg:my-6 text-custom-tertiary">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Blanditiis rerum repellat, quia vitae id error corrupti sunt sequi
-              quasi. Libero?
+              Trade your waste for a better future.
+              Ingin tahu lebih tentang kami?
             </p>
             <Link to={'/aboutus'}>
               <button className="w-full mb-5 rounded-full lg:w-1/4 btn btn-accent btn-outline lg:px-20 text-custom-primary">
