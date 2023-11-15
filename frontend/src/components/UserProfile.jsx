@@ -56,6 +56,20 @@ export default function UserProfile() {
   return (
     <section className="py-10 md:py-16 bg-custom-primary">
       <Container>
+      <div className="mt-3 text-sm breadcrumbs text-custom-tertiary">
+          <ul>
+            <li>
+              <Link className="text-base" to="/">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link className="text-base" to="#">
+                Profile
+              </Link>
+            </li>
+          </ul>
+        </div>
         <div className="container max-w-screen-xl px-4 mx-auto">
           <div className="text-center">
             <h1 className="mb-8 text-lg font-medium uppercase text-custom-secondary md:text-2xl">

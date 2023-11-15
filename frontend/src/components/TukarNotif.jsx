@@ -1,9 +1,34 @@
 import Container from './Container';
+import { Link } from 'react-router-dom';
 
 export default function TukarNotif() {
   return (
     <section className="w-full bg-custom-primary">
       <Container>
+      <div className="mt-3 text-sm breadcrumbs text-custom-tertiary">
+          <ul>
+            <li>
+              <Link className="text-base" to="/">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link className="text-base" to="/user/profile">
+                Profile
+              </Link>
+            </li>
+            <li>
+              <Link className="text-base" to="/user/tukar">
+                Tukar Reward
+              </Link>
+            </li>
+            <li>
+              <Link className="text-base" to="#">
+                Berhasil!
+              </Link>
+            </li>
+          </ul>
+        </div>
         <div className="flex h-screen">
           <div className="m-auto">
             <div className="bg-custom-secondary rounded-lg border-gray-300 border p-3 shadow-lg">

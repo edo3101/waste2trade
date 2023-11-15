@@ -1,10 +1,9 @@
-import { CounterExc2, Footer } from '../components';
+import { CounterExc2 } from '../components';
 
 export default function RewardCount2() {
   return (
     <>
       <CounterExc2 />
-      <Footer />
     </>
   );
 }

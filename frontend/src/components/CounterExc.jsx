@@ -23,6 +23,25 @@ const Counter = () => {
   return (
     <section className="w-full bg-custom-primary">
       <Container className="py-5 lg:px-5">
+      <div className="mt-3 text-sm breadcrumbs text-custom-tertiary">
+          <ul>
+            <li>
+              <Link className="text-base" to="/">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link className="text-base" to="/user/profile">
+                Profile
+              </Link>
+            </li>
+            <li>
+              <Link className="text-base" to="#">
+                Tukar Reward
+              </Link>
+            </li>
+          </ul>
+        </div>
         <div className="min-h-screen bg-custom-secondary flex justify-center items-center">
           <div className="container mx-auto max-w-md shadow-md hover:shadow-lg transition duration-300">
             <div className="py-12 p-10 bg-custom-primary">
