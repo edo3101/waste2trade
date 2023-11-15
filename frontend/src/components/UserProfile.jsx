@@ -1,22 +1,23 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import Cookies from 'js-cookie';
 import Container from './Container';
 import kopi from '../assets/images/kopi-reward.jpg';
 import totebag from '../assets/images/totebag-reward.jpg';
 import tumbler from '../assets/images/tumbler-reward.jpg';
 import w2tProfile from '../assets/images/ProfileUser.jpg';
+import useAxios from '../hooks/useAxios';
 
 export default function UserProfile() {
   const [userData, setUserData] = useState({});
   const [giftCodeInput, setGiftCodeInput] = useState('');
   const [claimStatus, setClaimStatus] = useState(null);
-
+  const { axiosInstance } = useAxios();
+  
   const fetchData = async () => {
     try {
       const authToken = Cookies.get('auth_token');
-      const profileResponse = await axios.get('http://localhost:3000/user/profile', {
+      const profileResponse = await axiosInstance.get('/user/profile', {
         headers: {
           Authorization: 'Bearer ' + authToken,
         },
@@ -31,8 +32,8 @@ export default function UserProfile() {
   const claimGiftCode = async () => {
     try {
       const authToken = Cookies.get('auth_token');
-      const claimResponse = await axios.put(
-        'http://localhost:3000/user/redeemcode',
+      const claimResponse = await axiosInstance.put(
+        '/user/redeemcode',
         { giftCode: giftCodeInput },
         {
           headers: {

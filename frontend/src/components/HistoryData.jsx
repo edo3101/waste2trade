@@ -2,18 +2,19 @@ import { useEffect, useState } from 'react';
 import Container from './Container';
 import { Link } from 'react-router-dom';
 import { FiSearch } from 'react-icons/fi';
-import axios from 'axios';
 import Cookies from 'js-cookie';
+import useAxios from '../hooks/useAxios';
 
 export default function HistoryData() {
   const [trashSubmitHistory, setTrashSubmitHistory] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
+  const { axiosInstance } = useAxios();
 
   const fetchData = async () => {
     try {
       const authToken = Cookies.get('auth_token');
-      const trashSubmitHistoryResponse = await axios.get(
-        'http://localhost:3000/partner/trashSubmitHistory',
+      const trashSubmitHistoryResponse = await axiosInstance.get(
+        '/partner/trashSubmitHistory',
         {
           headers: {
             Authorization: 'Bearer ' + authToken,

@@ -1,11 +1,12 @@
 import Container from './Container';
-import axios from 'axios';
 import Cookies from 'js-cookie';
 import { useState } from 'react';
+import useAxios from '../hooks/useAxios';
 
 export default function UserLogin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { axiosInstance } = useAxios();
 
   const handleInput = (event) => {
     const user = event.target.value;
@@ -18,7 +19,7 @@ export default function UserLogin() {
   };
 
   const handleLogin = async () => {
-    const response = await axios.post('http://localhost:3000/user/login', {
+    const response = await axiosInstance.post('/user/login', {
       email,
       password,
     });

@@ -2,11 +2,13 @@ import Container from './Container';
 import { Link } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import useAxios from '../hooks/useAxios';
 
 export default function Catalog() {
   const [partnerData, setPartnerData] = useState({});
   const [totalTrashWeight, setTotalTrashWeight] = useState(null);
+  const { axiosInstance } = useAxios();
+
   const GRAMS_TO_KG = (grams) => {
     const gramsAsNumber = parseFloat(grams);
 
@@ -23,11 +25,12 @@ export default function Catalog() {
       return formattedKilograms;
     }
   };
+  
   const fetchData = async () => {
     try {
       const authToken = Cookies.get('auth_token');
-      const profileResponse = await axios.get(
-        'http://localhost:3000/partner/profile',
+      const profileResponse = await axiosInstance.get(
+        '/partner/profile',
         {
           headers: {
             Authorization: 'Bearer ' + authToken,
@@ -35,8 +38,8 @@ export default function Catalog() {
         }
       );
 
-      const totalTrashWeightResponse = await axios.get(
-        'http://localhost:3000/partner/totalTrashWeight',
+      const totalTrashWeightResponse = await axiosInstance.get(
+        '/partner/totalTrashWeight',
         {
           headers: {
             Authorization: 'Bearer ' + authToken,
