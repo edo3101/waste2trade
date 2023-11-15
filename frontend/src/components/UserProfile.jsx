@@ -1,15 +1,17 @@
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import Cookies from 'js-cookie';
 import Container from './Container';
 import kopi from '../assets/images/kopi-reward.jpg';
 import totebag from '../assets/images/totebag-reward.jpg';
 import tumbler from '../assets/images/tumbler-reward.jpg';
 import w2tProfile from '../assets/images/ProfileUser.jpg';
-import Cookies from 'js-cookie';
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
 
 export default function UserProfile() {
   const [userData, setUserData] = useState({});
+  const [giftCodeInput, setGiftCodeInput] = useState('');
+  const [claimStatus, setClaimStatus] = useState(null);
 
   const fetchData = async () => {
     try {
@@ -21,34 +23,35 @@ export default function UserProfile() {
       });
 
       setUserData(profileResponse.data);
-
     } catch (error) {
       console.error('Error fetching data:', error);
+    }
+  };
+
+  const claimGiftCode = async () => {
+    try {
+      const authToken = Cookies.get('auth_token');
+      const claimResponse = await axios.put(
+        'http://localhost:3000/user/redeemcode',
+        { giftCode: giftCodeInput },
+        {
+          headers: {
+            Authorization: 'Bearer ' + authToken,
+          },
+        }
+      );
+
+      setClaimStatus({ message: `Selamat! Point anda sudah bertambah`, success: true });
+      fetchData();
+    } catch (error) {
+      console.error('Error claiming gift code:', error);
+      setClaimStatus({ message: 'Code sudah pernah digunakan atau tidak ditemukan', success: false });
     }
   };
 
   useEffect(() => {
     fetchData();
   }, []);
-
-  const [claimStatus, setClaimStatus] = useState(null);
-  const claimGiftCode = async () => {
-    try {
-      const authToken = Cookies.get('auth_token');
-      const claimResponse = await axios.post('http://localhost:3000/user/redeemcode', {}, {
-        headers: {
-          Authorization: 'Bearer ' + authToken,
-        },
-      });
-  
-      setClaimStatus(claimResponse.data.message);
-      fetchData();
-    } catch (error) {
-      console.error('Error claiming gift code:', error);
-      setClaimStatus('Failed to claim gift code');
-    }
-  };
-
 
   return (
     <section className="py-10 md:py-16 bg-custom-primary">
@@ -70,24 +73,36 @@ export default function UserProfile() {
             </div>
 
             <h6 className="mb-8 text-lg font-medium uppercase text-custom-secondary md:text-2xl">
-            {userData.username}
+              {userData.username}
             </h6>
 
             <h6 className="mb-8 text-lg font-medium uppercase text-custom-secondary md:text-2xl">
               Poin Terkumpul: {userData.points}
             </h6>
-            <div className="text-center">
+            
             {claimStatus && (
-              <p className={claimStatus.includes('Success') ? 'text-green-500' : 'text-red-500'}>
-                {claimStatus}
+              <p className={claimStatus.success ? 'text-green-500' : 'text-red-500'}>
+                {claimStatus.message}
               </p>
             )}
-            <button
-              onClick={claimGiftCode}
-              className="w-full mb-5 rounded-full lg:w-1/4 btn btn-accent btn-outline lg:px-20 text-custom-primary">
-              Claim Giftcode
-            </button>
-          </div>
+            
+            <form onSubmit={(e) => { e.preventDefault(); claimGiftCode(); }}>
+              <div className="flex items-center justify-center mb-2">
+                <input
+                  type="text"
+                  placeholder="Input Gift Code"
+                  className="w-2/3 px-4 py-2 border rounded-md text-custom-tertiary"
+                  value={giftCodeInput}
+                  onChange={(e) => setGiftCodeInput(e.target.value)}
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-2/3 mb-5 rounded-full lg:w-1/4 btn btn-accent btn-outline lg:px-20 text-custom-primary">
+                Claim Giftcode
+              </button>
+            </form>
+
           </div>
         </div>
         <div className="container items-center max-w-screen-xl px-4 mx-auto">
@@ -122,12 +137,12 @@ export default function UserProfile() {
                 />
               </div>
               <Link to={'/user/tukar'}>
-              <h4 className="mb-4 text-lg font-medium text-center text-custom-tertiary">
-                Tote Bag
-              </h4>
-              <h4 className="mb-4 text-lg font-medium text-center text-custom-tertiary">
-                15 Poin
-              </h4>
+                <h4 className="mb-4 text-lg font-medium text-center text-custom-tertiary">
+                  Tote Bag
+                </h4>
+                <h4 className="mb-4 text-lg font-medium text-center text-custom-tertiary">
+                  15 Poin
+                </h4>
               </Link>
             </div>
 
@@ -140,12 +155,12 @@ export default function UserProfile() {
                 />
               </div>
               <Link to={'/user/tukar'}>
-              <h4 className="mb-4 text-lg text-center font-medium text-custom-tertiary">
-                Tumbler
-              </h4>
-              <h4 className="mb-4 text-lg text-center font-medium text-custom-tertiary">
-                30 Poin
-              </h4>
+                <h4 className="mb-4 text-lg font-medium text-center text-custom-tertiary">
+                  Tumbler
+                </h4>
+                <h4 className="mb-4 text-lg font-medium text-center text-custom-tertiary">
+                  30 Poin
+                </h4>
               </Link>
             </div>
           </div>

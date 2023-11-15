@@ -57,11 +57,12 @@ export default function CodeNotif() {
             <h1 className="mb-4 text-lg font-medium text-custom-tertiary">
               GIFTCODE / BARCODE
             </h1>
+            {/* <p className='mt-2 text-sm text-center text-gray-500'>Selamat anda mendapatkan {giftCode.points} points!</p> */}
             {giftCode ? (
               <div className='mb-2'>
                 <ReactBarcode value={giftCode.code} />
                 <p className='mt-2 text-sm text-center text-gray-500'>
-                  Generated on: {new Date(giftCode.generatedAt).toLocaleString()}
+                  Selamat Anda mendapatkan {giftCode.points} Points!
                 </p>
               </div>
             ) : (
