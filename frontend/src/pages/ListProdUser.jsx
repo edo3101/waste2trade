@@ -1,5 +1,5 @@
 
-import { Navbar, Footer, WasteOpt, RewardOpt, KedaiOption } from '../components';
+import { Navbar, Footer, WasteOpt, ListRewardOpt, KedaiOption } from '../components';
 
 export default function ListProdUser() {
     return (
@@ -7,7 +7,7 @@ export default function ListProdUser() {
         <Navbar />
         <WasteOpt />
         <KedaiOption />
-        <RewardOpt />
+        <ListRewardOpt />
         <Footer />
       </>
     );

@@ -14,7 +14,9 @@ import {
   ListProdUser,
   TukarSampahMitra,
   Giftcode,
-  AboutUs
+  AboutUs,
+  RewardCount2,
+  ExcNotif2
 } from './pages';
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="auth/register" element={<RegisterPage />} />
+          <Route path="list/tukar" element={<RewardCount2 />} />
+          <Route path="list/berhasil" element={<ExcNotif2 />} />
         </Route>
 
         <Route path="/auth" element={<AuthLayout />}>
@@ -48,8 +52,8 @@ function App() {
           <Route path="giftcode" element={<Giftcode />} />
         </Route>
 
-        <Route path="list" element={<ListProdUser />}></Route>
-
+        <Route path="/list" element={<ListProdUser />}>
+        </Route>
         {/* <Route path="*" element={<NotFoundPage />} /> */}
       </Routes>
     </BrowserRouter>

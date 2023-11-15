@@ -4,7 +4,7 @@ import totebag from '../assets/images/totebag-reward.jpg';
 import tumbler from '../assets/images/tumbler-reward.jpg';
 import { Link } from 'react-router-dom';
 
-export default function RewardOpt() {
+export default function ListRewardOpt() {
   return (
     <section>
       <Container>
@@ -21,12 +21,12 @@ export default function RewardOpt() {
                   alt=""
                 />
               </div>
-              <Link to={'/user/tukar'}>
+              <Link to={'/list/tukar'}>
               <h4 className="mb-4 text-lg font-medium text-custom-tertiary">
                 Kopi Gula Aren
               </h4>
               </Link>
-              <Link to={'/user/tukar'}>
+              <Link to={'/list/tukar'}>
               <h4 className="mb-4 text-lg font-medium text-custom-tertiary">
                 5 Poin
               </h4>
@@ -41,7 +41,7 @@ export default function RewardOpt() {
                   alt=""
                 />
               </div>
-              <Link to={'/user/tukar'}>
+              <Link to={'/list/tukar'}>
               <h4 className="mb-4 text-lg font-medium text-center text-custom-tertiary">
                 Tote Bag
               </h4>
@@ -59,7 +59,7 @@ export default function RewardOpt() {
                   alt=""
                 />
               </div>
-              <Link to={'/user/tukar'}>
+              <Link to={'/list/tukar'}>
               <h4 className="mb-4 text-lg text-center font-medium text-custom-tertiary">
                 Tumbler
               </h4>

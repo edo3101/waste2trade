@@ -15,7 +15,9 @@ export { default as UserLogin } from './UserLogin';
 export { default as UserProfile } from './UserProfile';
 export { default as WasteOpt } from './WasteOpt';
 export { default as CounterExc } from './CounterExc';
+export { default as CounterExc2 } from './CounterExc2';
 export { default as TukarNotif } from './TukarNotif';
+export { default as TukarNotif2 } from './TukarNotif2';
 export { default as Catalog } from './Catalog';
 export { default as HistoryData } from './HistoryData';
 export { default as KedaiProfilePoint } from './KedaiProfilePoint';
@@ -26,3 +28,5 @@ export { default as Navbar2 } from './Navbar2';
 export { default as Navbar3 } from './Navbar3';
 export { default as CodeNotif } from './CodeNotif';
 export { default as About } from './About';
+export { default as ListRewardOpt } from './ListRewardOpt';
+
