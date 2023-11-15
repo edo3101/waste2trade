@@ -83,6 +83,16 @@ async function giftcode(req, res) {
   }
 }
 
+async function getProducts(req, res) {
+  try {
+    const products = await Product.find();
+    res.json(products);
+  } catch (err) {
+    console.error("Error fetching products: ", err);
+    res.status(500).json({ error: "Unable to retrieve products" });
+  }
+}
+
 async function buyProduct(req, res) {
   try {
     const productId = req.params.productId;
@@ -92,23 +102,24 @@ async function buyProduct(req, res) {
       return res.status(404).json({ message: "Product not found" });
     }
 
-    const user = req.user; // Assuming authenticateTokenUser sets req.user
+    const user = req.user; 
+    const quantity = req.body.quantity || 1;
 
-    if (user.points < product.price) {
+    if (user.points < product.price * quantity) {
       return res
         .status(400)
-        .json({ message: "Not enough points to buy this product" });
+        .json({ message: "Not enough points to buy these products" });
     }
 
     const updatedUser = await User.findByIdAndUpdate(
       user._id,
-      { $inc: { points: -product.price } },
+      { $inc: { points: -product.price * quantity } },
       { new: true }
     );
 
     res.json({
       user: updatedUser,
-      message: `Successfully bought ${product.name}`,
+      message: `Successfully bought ${quantity} ${product.name}(s)`,
     });
   } catch (error) {
     console.error(error);
@@ -133,4 +144,5 @@ module.exports = {
   profile,
   giftcode,
   buyProduct,
+  getProducts,
 };
