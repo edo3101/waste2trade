@@ -56,7 +56,7 @@ export default function UserProfile() {
   return (
     <section className="py-10 md:py-16 bg-custom-primary">
       <Container>
-      <div className="mt-3 text-sm breadcrumbs text-custom-tertiary">
+        <div className="mt-3 text-sm breadcrumbs text-custom-tertiary">
           <ul>
             <li>
               <Link className="text-base" to="/">
@@ -93,13 +93,13 @@ export default function UserProfile() {
             <h6 className="mb-8 text-lg font-medium uppercase text-custom-secondary md:text-2xl">
               Poin Terkumpul: {userData.points}
             </h6>
-            
+
             {claimStatus && (
               <p className={claimStatus.success ? 'text-green-500' : 'text-red-500'}>
                 {claimStatus.message}
               </p>
             )}
-            
+
             <form onSubmit={(e) => { e.preventDefault(); claimGiftCode(); }}>
               <div className="flex items-center justify-center mb-2">
                 <input
@@ -132,7 +132,7 @@ export default function UserProfile() {
                   alt=""
                 />
               </div >
-              <Link to={'/user/tukar'}>
+              <Link to={'/user/tukar?type=kopi'}>
                 <h4 className="mb-4 text-lg font-medium text-center text-custom-tertiary">
                   Kopi Gula Aren
                 </h4>
@@ -150,7 +150,7 @@ export default function UserProfile() {
                   alt=""
                 />
               </div>
-              <Link to={'/user/tukar'}>
+              <Link to={'/user/tukar?type=bag'}>
                 <h4 className="mb-4 text-lg font-medium text-center text-custom-tertiary">
                   Tote Bag
                 </h4>
@@ -168,7 +168,7 @@ export default function UserProfile() {
                   alt=""
                 />
               </div>
-              <Link to={'/user/tukar'}>
+              <Link to={'/user/tukar?type=tumbler'}>
                 <h4 className="mb-4 text-lg font-medium text-center text-custom-tertiary">
                   Tumbler
                 </h4>
