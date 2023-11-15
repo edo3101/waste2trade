@@ -17,6 +17,11 @@ router.put(
   userController.giftcode
 );
 router.get("/coffeeShops", userController.getCoffeeShop);
+router.get(
+  "/products",
+  authenticateTokenUser.authenticateTokenUser,
+  userController.getProducts
+);
 router.put(
   "/buyProduct/:productId",
   authenticateTokenUser.authenticateTokenUser,
