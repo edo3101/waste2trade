@@ -15,19 +15,19 @@ export default function ListRewardOpt() {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             <div className="flex flex-col items-center px-8 py-10 rounded-md bg-gray-50">
               <div className="flex justify-center w-20 py-6 mb-4 rounded-md bg-gray-50">
+              <Link to={'/list/tukar'}>
                 <img
                   className="object-cover w-20 h-20 rounded-full"
                   src={kopi}
                   alt=""
                 />
+                </Link>
               </div>
               <Link to={'/list/tukar'}>
-              <h4 className="mb-4 text-lg font-medium text-custom-tertiary">
+              <h4 className="mb-4 text-lg font-medium text-center text-custom-tertiary">
                 Kopi Gula Aren
               </h4>
-              </Link>
-              <Link to={'/list/tukar'}>
-              <h4 className="mb-4 text-lg font-medium text-custom-tertiary">
+              <h4 className="mb-4 text-lg font-medium text-center text-custom-tertiary">
                 5 Poin
               </h4>
               </Link>
@@ -35,11 +35,13 @@ export default function ListRewardOpt() {
             
             <div className="flex flex-col items-center px-8 py-10 rounded-md bg-gray-50">
               <div className="flex justify-center w-20 py-6 mb-4 rounded-md bg-gray-50">
+              <Link to={'/list/tukar'}>
                 <img
                   className="object-cover w-20 h-20 rounded-full"
                   src={totebag}
                   alt=""
                 />
+                </Link>
               </div>
               <Link to={'/list/tukar'}>
               <h4 className="mb-4 text-lg font-medium text-center text-custom-tertiary">
@@ -53,11 +55,13 @@ export default function ListRewardOpt() {
 
             <div className="flex flex-col items-center px-8 py-10 rounded-md bg-gray-50">
               <div className="flex justify-center w-20 py-6 mb-4 rounded-md bg-gray-50">
+              <Link to={'/list/tukar'}>
                 <img
                   className="object-cover w-20 h-20 rounded-full"
                   src={tumbler}
                   alt=""
                 />
+                </Link>
               </div>
               <Link to={'/list/tukar'}>
               <h4 className="mb-4 text-lg text-center font-medium text-custom-tertiary">

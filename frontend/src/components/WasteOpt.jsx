@@ -26,7 +26,7 @@ export default function WasteOpt() {
               </h4>
 
               <p className="font-normal text-gray-500 text-md">
-                Sampah plastik ada sebanyak 18,55%, masih mau nambah lagi?
+                Punya banyak plastik bekas dan nggak tau mau diapain? Kumpulkan, kirim ke kedai partner kami aja~
               </p>
             </div>
 
@@ -44,8 +44,7 @@ export default function WasteOpt() {
               </h4>
 
               <p className="font-normal text-gray-500 text-md">
-                Sebagai peminum kopi, kamu pasti membuang banyak sampah ini,
-                ayo, berubah!
+                Punya botol, gelas, dan kaleng bekas nganggur? Kedai partner kami siap menerima!
               </p>
             </div>
 
@@ -63,7 +62,7 @@ export default function WasteOpt() {
               </h4>
 
               <p className="font-normal text-gray-500 text-md">
-                Sampah kertas/karton totalnya ada 11,04%, yuk, kurangi!
+                Bingung mau buang kardus dan kertas di mana? Kunjungi kedai partner kami.
               </p>
             </div>
           </div>
