@@ -1,14 +1,15 @@
 import Container from './Container';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import useAxios from '../hooks/useAxios';
 
 const FormRegister = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const { axiosInstance } = useAxios();
 
   const handleInput = (event) => {
     const user = event.target.value;
@@ -26,7 +27,7 @@ const FormRegister = () => {
   };
 
   const handleLogin = async () => {
-    const response = await axios.post('http://localhost:3000/user/signup', {
+    const response = await axiosInstance.post('/user/signup', {
       username,
       email,
       password,

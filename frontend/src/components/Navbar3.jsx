@@ -2,17 +2,18 @@ import { Link } from 'react-router-dom';
 import Container from './Container';
 import logo from '../assets/images/logo.png';
 import Cookies from 'js-cookie';
-import axios from 'axios';
 import { useEffect, useState } from 'react';
+import useAxios from '../hooks/useAxios';
 
 export default function Navbar3() {
   const [partnerData, setPartnerData] = useState({});
+  const { axiosInstance } = useAxios();
 
   const fetchData = async () => {
     try {
       const authToken = Cookies.get('auth_token');
-      const profileResponse = await axios.get(
-        'http://localhost:3000/partner/profile',
+      const profileResponse = await axiosInstance.get(
+        '/partner/profile',
         {
           headers: {
             Authorization: 'Bearer ' + authToken,
@@ -51,7 +52,7 @@ export default function Navbar3() {
               src={partnerData.image_profile}
               alt=""
               />
-              <p className="text-custom-tertiary text-center">Logout</p>
+              <p className="text-center text-custom-tertiary">Logout</p>
               </Link>
               </div>
         </div>

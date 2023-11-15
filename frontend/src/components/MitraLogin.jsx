@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import Container from './Container';
-import axios from 'axios';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
+import useAxios from '../hooks/useAxios';
 
 export default function MitraLogin() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const { axiosInstance } = useAxios();
 
   const handleInput = (event) => {
     const user = event.target.value;
@@ -20,7 +21,7 @@ export default function MitraLogin() {
   };
 
   const handleLogin = async () => {
-    const response = await axios.post('http://localhost:3000/partner/login', {
+    const response = await axiosInstance.post('/partner/login', {
       username,
       password,
     });

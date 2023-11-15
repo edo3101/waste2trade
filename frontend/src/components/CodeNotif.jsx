@@ -1,18 +1,19 @@
 import Cookies from 'js-cookie';
 import Container from './Container';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import ReactBarcode from 'react-barcode';
 import { Link } from 'react-router-dom';
+import useAxios from '../hooks/useAxios';
 
 export default function CodeNotif() {
   const [giftCode, setGiftCode] = useState(null);
-
+  const { axiosInstance } = useAxios();
+  
   const fetchData = async () => {
     try {
       const authToken = Cookies.get('auth_token');
-      const giftResponse = await axios.get(
-        'http://localhost:3000/partner/generateGiftcode',
+      const giftResponse = await axiosInstance.get(
+        '/partner/generateGiftcode',
         {
           headers: {
             Authorization: 'Bearer ' + authToken,

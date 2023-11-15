@@ -10,7 +10,7 @@ export default function KedaiOption() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axiosInstance.get('http://localhost:3000/user/coffeeShops');
+        const response = await axiosInstance.get('/user/coffeeShops');
         setCoffeeShops(response.data);
       } catch (error) {
         console.error('Error fetching coffee shops:', error);
@@ -33,15 +33,15 @@ export default function KedaiOption() {
             {coffeeShops.map(coffeeShop => (
               <div key={coffeeShop._id} className="flex flex-col items-center px-8 py-10 rounded-md bg-gray-50">
                 <img
-                  className="object-cover w-20 h-20 rounded-full mb-4"
+                  className="object-cover w-20 h-20 mb-4 rounded-full"
                   src={kopikiran}
                   alt={`Image of ${coffeeShop.name}`}
                 />
-                <h4 className="mb-4 text-lg font-medium text-custom-tertiary my-3">
+                <h4 className="my-3 mb-4 text-lg font-medium text-custom-tertiary">
                   {coffeeShop.name}
                 </h4>
-                <p className="font-normal text-gray-500 text-md my-3 text-center">Alamat: <br></br> {coffeeShop.address}</p>
-                <p className="font-normal text-gray-500 text-md my-3">Open Hours: {coffeeShop.openhours}</p>
+                <p className="my-3 font-normal text-center text-gray-500 text-md">Alamat: <br></br> {coffeeShop.address}</p>
+                <p className="my-3 font-normal text-gray-500 text-md">Open Hours: {coffeeShop.openhours}</p>
               </div>
             ))}
           </div>
