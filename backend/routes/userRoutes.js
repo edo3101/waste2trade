@@ -16,21 +16,11 @@ router.put(
   authenticateTokenUser.authenticateTokenUser,
   userController.giftcode
 );
-router.put(
-  "/redeemkopi",
-  authenticateTokenUser.authenticateTokenUser,
-  userController.redeemkopi
-);
-router.put(
-  "/redeembag",
-  authenticateTokenUser.authenticateTokenUser,
-  userController.redeembag
-);
-router.put(
-  "/redeemtumbler",
-  authenticateTokenUser.authenticateTokenUser,
-  userController.redeemtumbler
-);
 router.get("/coffeeShops", userController.getCoffeeShop);
+router.put(
+  "/buyProduct/:productId",
+  authenticateTokenUser.authenticateTokenUser,
+  userController.buyProduct
+);
 
 module.exports = router;

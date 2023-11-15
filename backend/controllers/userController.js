@@ -2,6 +2,7 @@ const UserService = require("../services/userService");
 const CoffeeShop = require("../models/coffeShop");
 const User = require("../models/userModel");
 const GiftCode = require("../models/giftCodeModel");
+const Product = require("../models/productModel");
 
 const userService = new UserService();
 
@@ -82,54 +83,33 @@ async function giftcode(req, res) {
   }
 }
 
-async function redeemkopi(req, res) {
+async function buyProduct(req, res) {
   try {
-    const target = await User.findOne({ email: req.data.email });
-    const updatePoin = { $inc: { points: -5 } };
+    const productId = req.params.productId;
+    const product = await Product.findById(productId);
 
-    const user = await User.updateOne(target, updatePoin);
-
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
+    if (!product) {
+      return res.status(404).json({ message: "Product not found" });
     }
 
-    res.json(user);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Internal server error" });
-  }
-}
+    const user = req.user; // Assuming authenticateTokenUser sets req.user
 
-async function redeembag(req, res) {
-  try {
-    const target = await User.findOne({ email: req.data.email });
-    const updatePoin = { $inc: { points: -15 } };
-
-    const user = await User.updateOne(target, updatePoin);
-
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
+    if (user.points < product.price) {
+      return res
+        .status(400)
+        .json({ message: "Not enough points to buy this product" });
     }
 
-    res.json(user);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Internal server error" });
-  }
-}
+    const updatedUser = await User.findByIdAndUpdate(
+      user._id,
+      { $inc: { points: -product.price } },
+      { new: true }
+    );
 
-async function redeemtumbler(req, res) {
-  try {
-    const target = await User.findOne({ email: req.data.email });
-    const updatePoin = { $inc: { points: -30 } };
-
-    const user = await User.updateOne(target, updatePoin);
-
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
-    }
-
-    res.json(user);
+    res.json({
+      user: updatedUser,
+      message: `Successfully bought ${product.name}`,
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error" });
@@ -152,7 +132,5 @@ module.exports = {
   getCoffeeShop,
   profile,
   giftcode,
-  redeemkopi,
-  redeembag,
-  redeemtumbler,
+  buyProduct,
 };
