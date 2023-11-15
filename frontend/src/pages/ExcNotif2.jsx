@@ -1,11 +1,9 @@
-import { TukarNotif2 } from '../components';
-import Footer from '../components/Footer'
+import { CardLogin } from '../components';
 
 export default function ExcNotif2() {
   return (
     <>
-      <TukarNotif2 />
-      <Footer />
+      <CardLogin />
     </>
   );
 }
