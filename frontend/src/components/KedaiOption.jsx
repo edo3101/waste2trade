@@ -27,7 +27,7 @@ export default function KedaiOption() {
       <Container>
         <div className="container max-w-screen-xl px-4 mx-auto">
           <h1 className="my-8 text-lg font-medium uppercase text-custom-secondary md:text-2xl">
-            YUK, KE KEDAI TERDEKAT!
+          KEDAI TERSEDIA (MITRA KAMI)
           </h1>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
             {coffeeShops.map(coffeeShop => (

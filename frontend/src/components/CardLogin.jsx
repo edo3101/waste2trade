@@ -26,8 +26,7 @@ export default function CardLogin() {
           </div>
           <Link
             to="/auth/mitra"
-            className="card w-full lg:w-1/4 hover:shadow-2xl bg-custom-secondary mt-2 mb-2 lg:ml-4 lg:mr-4"
-          >
+            className="card w-full lg:w-1/4 hover:shadow-2xl bg-custom-secondary mt-2 mb-2 lg:ml-4 lg:mr-4">
             <figure>
               <img src={imageLinks.mitra} alt="Masuk Sebagai Mitra" />
             </figure>
@@ -37,6 +36,16 @@ export default function CardLogin() {
           </Link>
         </div>
       </Container>
+
+      <div className="card-body text-custom-tertiary mt-1">
+        <div className="flex justify-center mt-1">
+          <h2 className="text-lg ml-2">Belum punya akun?</h2>
+          <Link to="/auth/register" className="text-lg ml-1 font-bold">
+            Register!
+          </Link>
+        </div>
+        </div>
+
     </section>
   );
 }
