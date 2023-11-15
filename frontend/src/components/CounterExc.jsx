@@ -1,12 +1,62 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import kopi from '../assets/images/kopi-reward.jpg';
+import { Link, useLocation } from 'react-router-dom';
+import kopiImage from '../assets/images/kopi-reward.jpg';
+import totebagImage from '../assets/images/totebag-reward.jpg';
+import tumblerImage from '../assets/images/tumbler-reward.jpg';
 import Container from './Container';
+import useAxios from '../hooks/useAxios';
 
 
-const Counter = () => {
+const CounterExc = () => {
   const [count, setCount] = useState(0);
+  const { axiosInstance } = useAxios();
+  const location = useLocation();
 
+  const queryParams = new URLSearchParams(location.search);
+  const redeemType = queryParams.get('type');
+
+  const imageMap = {
+    kopi: kopiImage,
+    bag: totebagImage,
+    tumbler: tumblerImage,
+  };
+
+  const imagePath = imageMap[redeemType];
+
+  const handleInputChange = (e) => {
+    setCount(e.target.value);
+  }
+
+  const calculatePoints = () => {
+    switch (redeemType) {
+      case 'kopi':
+        return count * -5;
+      case 'bag':
+        return count * -15;
+      case 'tumbler':
+        return count * -30;
+      default:
+        return 0;
+    }
+  };
+
+  const exchangeReward = async (e) => {
+    e.preventDefault();
+
+    try {
+      const newPoints = calculatePoints();
+      console.log(newPoints)
+      const response = await axiosInstance.put(`/user/redeem${redeemType}`, newPoints);
+
+      if (response.status === 200) {
+        window.location.assign('/user/berhasil');
+      } else {
+        console.error('Request failed with status:', response.status);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   const decreaseCount = () => {
     if (count > 0) {
@@ -14,16 +64,14 @@ const Counter = () => {
     }
   };
 
-
   const increaseCount = () => {
     setCount(count + 1);
   };
 
-
   return (
     <section className="w-full bg-custom-primary">
       <Container className="py-5 lg:px-5">
-      <div className="mt-3 text-sm breadcrumbs text-custom-tertiary">
+        <div className="mt-3 text-sm breadcrumbs text-custom-tertiary">
           <ul>
             <li>
               <Link className="text-base" to="/">
@@ -48,8 +96,8 @@ const Counter = () => {
               <div className="mb-6 text-center">
                 <img
                   className="object-cover h-32 w-32 rounded-full mx-auto"
-                  src={kopi}
-                  alt=""
+                  src={imagePath}
+                  alt={redeemType}
                 />
                 <div className="custom-number-input h-10 w-32 mx-auto my-5">
                   <label
@@ -70,6 +118,7 @@ const Counter = () => {
                       className="focus:outline-none text-center w-full bg-custom-tertiary font-semibold text-md hover:text-white focus:text-white md:text-base cursor-default flex items-center text-white outline-none"
                       name="custom-input-number"
                       value={count}
+                      onChange={handleInputChange}
                       readOnly
                     />
                     <button
@@ -80,13 +129,12 @@ const Counter = () => {
                     </button>
                   </div>
                 </div>
-                <Link to="/user/berhasil">
-                  <button
-                    className="w-1/2 lg:w-1/3 btn btn-accent btn-outline rounded-full lg:px-20 text-custom-primary my-20"
-                  >
-                    Tukarkan
-                  </button>
-                </Link>
+                <button
+                  onClick={exchangeReward}
+                  className="w-1/2 lg:w-1/3 btn btn-accent btn-outline rounded-full lg:px-20 text-custom-primary my-20"
+                >
+                  Tukarkan
+                </button>
               </div>
             </div>
           </div>
@@ -96,5 +144,4 @@ const Counter = () => {
   );
 };
 
-
-export default Counter;
+export default CounterExc;
