@@ -11,9 +11,6 @@
 - [Examples of Use](#examples-of-use)
 - [Project Status](#project-status)
 - [Contributors](#contributors)
-- [License](#license)
-- [Sources](#sources)
-- [Other Information](#other-information)
 
 ## Introduction
 
