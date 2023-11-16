@@ -34,13 +34,23 @@ export default function About() {
               Kita bisa membangun lingkungan minim sampah bersama.
               <br></br>
               Yuk, tukarkan sampahmu dengan reward menarik!
-
             </p>
           </div>
         </div>
 
+         <div className="container max-w-screen-xl mx-auto px-4 justify-center">
+          <h3 className="text-2xl lg:text-4xl font-bold text-custom-tertiary mt-7 ml-10 tracking-tighter">
+              Waste<span style={{ color: '#1B8D73' }}>2</span>Trade<span className="text-custom-secondary"> presents</span>
+            </h3>
+       <p className="text-lg lg:text-base lg:my-3 text-custom-tertiary ml-10">
+        Waste2Trade adalah sebuah platform bagi anak muda dan pemilik kedai kopi yang ingin berkontribusi 
+        dalam mengurangi sampah di Indonesia dengan cara menukarkan sampah untuk produk/barang yang ditawarkan oleh kedai kopi (sebagai mitra).
+            </p>
+            </div>
+       
+
         <div className="container max-w-screen-xl mx-auto px-4">
-          <h1 className="font-medium text-custom-secondary text-lg md:text-2xl uppercase my-8 ml-10">
+          <h1 className="font-medium text-custom-secondary text-lg md:text-2xl uppercase my-8 ml-10 mt-15">
             MISI KAMI UNTUK GENERASI MUDA
           </h1>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
