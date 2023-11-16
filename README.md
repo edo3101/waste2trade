@@ -53,19 +53,34 @@ To get a local copy up and running, follow these simple example steps:
 
 ## Usage
 
-Waste2Trade offers several features and pages:
+Use this space to show useful examples of how the Waste2Trade platform can be used. Below are some scenarios and examples:
 
-- **Home**: Landing page with a hero section, card displays, and information about the project.
+1. **User Registration:**
+   - Navigate to the registration page by clicking on the "Register" link in the navigation bar.
+   - Fill in the required information such as username, email, and password.
+   - Click the "Register" button to create a new user account.
 
-- **List Products**: Page displaying options for users, including waste categories and rewards.
+2. **User Login:**
+   - Access the login page by clicking on the "Login" link in the navigation bar.
+   - Enter your registered email and password.
+   - Click the "Login" button to log in to your account.
 
-- **User Page**: User profile and options for waste exchange.
+3. **Exploring Available Products:**
+   - Once logged in, visit the "List Products" section to explore available products for waste exchange.
+   - View details about each product, including images and descriptions.
 
-- **Mitra Page**: Dashboard for coffee shop partners, including options for exchanging trash and viewing history.
+4. **Initiating Waste Exchange:**
+   - Navigate to the "Tukar Sampah" (Waste Exchange) section.
+   - Select the type and quantity of waste you want to exchange.
+   - Click the "Tukarkan" (Exchange) button to initiate the process.
 
-- **About Us**: Information about the project and its contributors.
+5. **Viewing User Profile:**
+   - Check your user profile by clicking on the "Profile" link in the user dashboard.
+   - View your profile details, transaction history, and earned rewards.
 
-Explore these pages to understand the functionalities and contributions of the project.
+6. **Coffee Shop Partner Dashboard:**
+   - If you are a coffee shop partner, log in to the platform using the provided credentials.
+   - Explore the coffee shop dashboard, including transaction history and user interactions.
 
 ## Scope of Functionalities
 
