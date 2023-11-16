@@ -18,9 +18,50 @@ Waste2Trade is a platform for youth and coffee shop owners who want to contribut
 
 ## Technologies
 
-- React
-- Axios
-- React Router
+### Frontend
+
+- **Languages:**
+  - React - version 18.2.0
+  - JavaScript - ECMAScript 2023
+
+- **Libraries:**
+  - Axios - version 1.6.1
+  - React Router - version 6.17.0
+  - JS Cookie - version 3.0.5
+
+- **Build Tools:**
+  - Vite - version 4.5.0
+  - ESBuild - version 0.19.5
+
+- **Styling:**
+  - Tailwind CSS - version 3.3.3
+
+- **Linting and Formatting:**
+  - ESLint - version 8.45.0
+  - Prettier - version 3.0.3
+
+### Backend
+
+- **Languages:**
+  - Node.js
+
+- **Frameworks:**
+  - Express - version 4.18.2
+
+- **Database:**
+  - MongoDB (via Mongoose)
+
+- **Authentication:**
+  - JSON Web Token (JWT) - version 9.0.2
+  - Bcrypt - version 5.1.1
+
+- **Middleware:**
+  - Body Parser - version 1.19.1
+  - Dotenv - version 16.3.1
+
+- **Deployment:**
+  - Vercel - version 32.5.0
+
 
 ## Getting Started
 
