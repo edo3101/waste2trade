@@ -7,8 +7,8 @@ const auth = Cookies.get(authToken);
 const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
   headers: {
-    'Authorization': `Bearer ${auth}`
-  }
+    Authorization: `Bearer ${auth}`,
+  },
 });
 
 export default axiosInstance;

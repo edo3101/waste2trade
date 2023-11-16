@@ -7,19 +7,18 @@ const DatePickerTukar = () => {
 
   return (
     <div className="">
-        <label className="block mt-5 mb-2 text-sm font-medium  text-custom-secondary">
-          Pilih tanggal
-        </label>
+      <label className="block mt-5 mb-2 text-sm font-medium text-custom-secondary">
+        Pilih tanggal
+      </label>
 
-        <DatePicker
-          selected={selectedDate}
-          onChange={(date) => setSelectedDate(date)}
-          dateFormat="dd/MM/yyyy"
-          className="w-full py-3 pl-4 pr-10 font-medium leading-none border-2 rounded-lg shadow-sm border-custom-secondary focus:outline-none focus:shadow-outline text-custom-tertiary"
-          placeholderText="Select date"
-        />
-      </div>
- 
+      <DatePicker
+        selected={selectedDate}
+        onChange={(date) => setSelectedDate(date)}
+        dateFormat="dd/MM/yyyy"
+        className="w-full py-3 pl-4 pr-10 font-medium leading-none border-2 rounded-lg shadow-sm border-custom-secondary focus:outline-none focus:shadow-outline text-custom-tertiary"
+        placeholderText="Select date"
+      />
+    </div>
   );
 };
 

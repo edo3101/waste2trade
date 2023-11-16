@@ -102,7 +102,7 @@ async function buyProduct(req, res) {
       return res.status(404).json({ message: "Product not found" });
     }
 
-    const user = req.user; 
+    const user = req.user;
     const quantity = req.body.quantity || 1;
 
     if (user.points < product.price * quantity) {

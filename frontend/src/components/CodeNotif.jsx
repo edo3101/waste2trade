@@ -8,7 +8,7 @@ import useAxios from '../hooks/useAxios';
 export default function CodeNotif() {
   const [giftCode, setGiftCode] = useState(null);
   const { axiosInstance } = useAxios();
-  
+
   const fetchData = async () => {
     try {
       const authToken = Cookies.get('auth_token');
@@ -34,7 +34,7 @@ export default function CodeNotif() {
   return (
     <section className="w-full bg-custom-primary">
       <Container className="py-5 lg:px-5">
-      <div className="mt-1 text-sm breadcrumbs text-custom-tertiary">
+        <div className="mt-1 text-sm breadcrumbs text-custom-tertiary">
           <ul>
             <li>
               <Link className="text-base" to="/mitra/dashboard">
@@ -60,9 +60,9 @@ export default function CodeNotif() {
             </h1>
             {/* <p className='mt-2 text-sm text-center text-gray-500'>Selamat anda mendapatkan {giftCode.points} points!</p> */}
             {giftCode ? (
-              <div className='mb-2'>
+              <div className="mb-2">
                 <ReactBarcode value={giftCode.code} />
-                <p className='mt-2 text-sm text-center text-gray-500'>
+                <p className="mt-2 text-sm text-center text-gray-500">
                   Selamat Anda mendapatkan {giftCode.points} Points!
                 </p>
               </div>

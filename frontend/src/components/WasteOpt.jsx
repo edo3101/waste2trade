@@ -26,7 +26,8 @@ export default function WasteOpt() {
               </h4>
 
               <p className="font-normal text-gray-500 text-md">
-                Punya banyak plastik bekas dan nggak tau mau diapain? Kumpulkan, kirim ke kedai partner kami aja~
+                Punya banyak plastik bekas dan nggak tau mau diapain? Kumpulkan,
+                kirim ke kedai partner kami aja~
               </p>
             </div>
 
@@ -44,7 +45,8 @@ export default function WasteOpt() {
               </h4>
 
               <p className="font-normal text-gray-500 text-md">
-                Punya botol, gelas, dan kaleng bekas nganggur? Kedai partner kami siap menerima!
+                Punya botol, gelas, dan kaleng bekas nganggur? Kedai partner
+                kami siap menerima!
               </p>
             </div>
 
@@ -62,7 +64,8 @@ export default function WasteOpt() {
               </h4>
 
               <p className="font-normal text-gray-500 text-md">
-                Bingung mau buang kardus dan kertas di mana? Kunjungi kedai partner kami.
+                Bingung mau buang kardus dan kertas di mana? Kunjungi kedai
+                partner kami.
               </p>
             </div>
           </div>

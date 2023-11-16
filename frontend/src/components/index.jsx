@@ -29,4 +29,3 @@ export { default as Navbar3 } from './Navbar3';
 export { default as CodeNotif } from './CodeNotif';
 export { default as About } from './About';
 export { default as ListRewardOpt } from './ListRewardOpt';
-

@@ -12,14 +12,11 @@ export default function Navbar3() {
   const fetchData = async () => {
     try {
       const authToken = Cookies.get('auth_token');
-      const profileResponse = await axiosInstance.get(
-        '/partner/profile',
-        {
-          headers: {
-            Authorization: 'Bearer ' + authToken,
-          },
-        }
-      );
+      const profileResponse = await axiosInstance.get('/partner/profile', {
+        headers: {
+          Authorization: 'Bearer ' + authToken,
+        },
+      });
 
       setPartnerData(profileResponse.data);
     } catch (error) {
@@ -35,7 +32,7 @@ export default function Navbar3() {
     Cookies.remove('auth_token');
     window.location.assign('/auth/login');
   };
-  
+
   return (
     <header className="sticky top-0 left-0 z-50 py-4 shadow-sm lg:py-6 bg-white-950 bg-opacity-80 backdrop-filter backdrop-blur-md backdrop-saturate-100">
       <Container className="lg:px-5">
@@ -48,13 +45,13 @@ export default function Navbar3() {
           <div onClick={handleLogout}>
             <Link to="/auth/login">
               <img
-              className="object-cover w-10 h-10 rounded-full"
-              src={partnerData.image_profile}
-              alt=""
+                className="object-cover w-10 h-10 rounded-full"
+                src={partnerData.image_profile}
+                alt=""
               />
               <p className="text-center text-custom-tertiary">Logout</p>
-              </Link>
-              </div>
+            </Link>
+          </div>
         </div>
       </Container>
     </header>

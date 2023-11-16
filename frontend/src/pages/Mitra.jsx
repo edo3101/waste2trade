@@ -1,4 +1,4 @@
-import { Catalog, HistoryData } from "../components";
+import { Catalog, HistoryData } from '../components';
 
 export default function Mitra() {
   return (

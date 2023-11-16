@@ -25,18 +25,15 @@ export default function Catalog() {
       return formattedKilograms;
     }
   };
-  
+
   const fetchData = async () => {
     try {
       const authToken = Cookies.get('auth_token');
-      const profileResponse = await axiosInstance.get(
-        '/partner/profile',
-        {
-          headers: {
-            Authorization: 'Bearer ' + authToken,
-          },
-        }
-      );
+      const profileResponse = await axiosInstance.get('/partner/profile', {
+        headers: {
+          Authorization: 'Bearer ' + authToken,
+        },
+      });
 
       const totalTrashWeightResponse = await axiosInstance.get(
         '/partner/totalTrashWeight',
@@ -79,11 +76,11 @@ export default function Catalog() {
         <h2 className="mt-8 text-3xl font-bold tracking-tighter lg:mt-14 lg:mb-5 text-custom-tertiary">
           Hi, {partnerData.name}
         </h2>
-        <h3 className='font-bold text-custom-tertiary'>Alamat</h3>
+        <h3 className="font-bold text-custom-tertiary">Alamat</h3>
         <span className="text-lg tracking-tighter label-text text-custom-tertiary">
           {partnerData.address}
         </span>
-        <h3 className='mt-2 font-bold text-custom-tertiary'>Buka pukul:</h3>
+        <h3 className="mt-2 font-bold text-custom-tertiary">Buka pukul:</h3>
         <span className="text-lg tracking-tighter label-text text-custom-tertiary">
           {partnerData.openhours} WIB
         </span>

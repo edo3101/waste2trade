@@ -8,11 +8,11 @@ const useAxios = () => {
   const axiosInstance = axios.create({
     baseURL: import.meta.env.VITE_API_BASE_URL,
     headers: {
-      'Authorization': `Bearer ${auth}`
-    }
+      Authorization: `Bearer ${auth}`,
+    },
   });
 
   return { axiosInstance };
-}
+};
 
 export default useAxios;

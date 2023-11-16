@@ -16,7 +16,7 @@ import {
   Giftcode,
   AboutUs,
   RewardCount2,
-  ExcNotif2
+  ExcNotif2,
 } from './pages';
 
 function App() {
@@ -52,9 +52,7 @@ function App() {
           <Route path="giftcode" element={<Giftcode />} />
         </Route>
 
-        <Route path="/list" element={<ListProdUser />}>
-        </Route>
-        {/* <Route path="*" element={<NotFoundPage />} /> */}
+        <Route path="/list" element={<ListProdUser />}></Route>
       </Routes>
     </BrowserRouter>
   );

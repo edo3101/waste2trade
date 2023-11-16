@@ -40,7 +40,6 @@ export default function TukarSampahMitra() {
     }
   };
 
-
   return (
     <>
       <TukarSampah

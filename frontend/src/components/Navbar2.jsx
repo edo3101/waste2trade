@@ -20,18 +20,16 @@ export default function Navbar2() {
           </div>
           <div onClick={handleLogout}>
             <Link to="/auth/login">
-            <img
-            className="object-cover w-10 h-10 rounded-full"
-            src={w2tProfile}
-            alt=""
-            />
-            <p className="text-custom-tertiary text-center">Logout</p>
+              <img
+                className="object-cover w-10 h-10 rounded-full"
+                src={w2tProfile}
+                alt=""
+              />
+              <p className="text-center text-custom-tertiary">Logout</p>
             </Link>
-            </div>
+          </div>
         </div>
       </Container>
     </header>
   );
 }
-
-

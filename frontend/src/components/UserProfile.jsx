@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Cookies from 'js-cookie';
@@ -35,7 +34,7 @@ export default function UserProfile() {
     } catch (error) {
       console.error('Error fetching product:', error);
     }
-  }
+  };
 
   const claimGiftCode = async () => {
     try {
@@ -50,11 +49,17 @@ export default function UserProfile() {
         }
       );
 
-      setClaimStatus({ message: `Selamat! Point anda sudah bertambah`, success: true });
+      setClaimStatus({
+        message: `Selamat! Point anda sudah bertambah`,
+        success: true,
+      });
       fetchData();
     } catch (error) {
       console.error('Error claiming gift code:', error);
-      setClaimStatus({ message: 'Code sudah pernah digunakan atau tidak ditemukan', success: false });
+      setClaimStatus({
+        message: 'Code sudah pernah digunakan atau tidak ditemukan',
+        success: false,
+      });
     }
   };
 
@@ -90,7 +95,7 @@ export default function UserProfile() {
           <div className="text-center">
             <div className="flex justify-center mb-16">
               <img
-                className="object-cover rounded-full h-48 w-48 lg:h-80 lg:w-80"
+                className="object-cover w-48 h-48 rounded-full lg:h-80 lg:w-80"
                 src={w2tProfile}
                 alt="w2tProfile"
               />
@@ -101,16 +106,26 @@ export default function UserProfile() {
             </h6>
 
             <h6 className="mb-8 text-lg font-medium uppercase text-custom-tertiary md:text-2xl">
-              Poin Terkumpul: <span className="font-semibold">{userData.points}</span>
+              Poin Terkumpul:{' '}
+              <span className="font-semibold">{userData.points}</span>
             </h6>
 
             {claimStatus && (
-              <p className={claimStatus.success ? 'text-green-500' : 'text-red-500'}>
+              <p
+                className={
+                  claimStatus.success ? 'text-green-500' : 'text-red-500'
+                }
+              >
                 {claimStatus.message}
               </p>
             )}
 
-            <form onSubmit={(e) => { e.preventDefault(); claimGiftCode(); }}>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                claimGiftCode();
+              }}
+            >
               <div className="flex items-center justify-center mb-2">
                 <input
                   type="text"
@@ -122,11 +137,11 @@ export default function UserProfile() {
               </div>
               <button
                 type="submit"
-                className="w-2/3 mb-5 rounded-full lg:w-1/4 btn btn-accent btn-outline lg:px-20 text-custom-primary">
+                className="w-2/3 mb-5 rounded-full lg:w-1/4 btn btn-accent btn-outline lg:px-20 text-custom-primary"
+              >
                 Claim Giftcode
               </button>
             </form>
-
           </div>
         </div>
         <div className="container items-center max-w-screen-xl px-4 mx-auto">
@@ -137,7 +152,10 @@ export default function UserProfile() {
             {Array.isArray(products) ? (
               products.map((product) => (
                 <Link to={`/user/tukar/${product._id}`}>
-                  <div key={product._id} className="card flex flex-col items-center hover:shadow-lg px-8 py-10 rounded-md bg-gray-50">
+                  <div
+                    key={product._id}
+                    className="flex flex-col items-center px-8 py-10 rounded-md card hover:shadow-lg bg-gray-50"
+                  >
                     <h4 className="mb-4 text-lg font-semibold text-center text-custom-tertiary">
                       {product.name}
                     </h4>
@@ -151,7 +169,6 @@ export default function UserProfile() {
               <p>products bukan array</p>
             )}
           </div>
-
         </div>
       </Container>
     </section>

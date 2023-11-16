@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const config = require("../config/config");
 const Partner = require("../models/partnerModel");
-const User = require("../models/userModel")
+const User = require("../models/userModel");
 
 function authenticateToken(req, res, next) {
   const token = req.headers.authorization.split(" ")[1];
@@ -43,5 +43,5 @@ function authenticateTokenUser(req, res, next) {
 
 module.exports = {
   authenticateToken,
-  authenticateTokenUser
+  authenticateTokenUser,
 };

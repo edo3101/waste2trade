@@ -36,7 +36,6 @@ const FormRegister = () => {
     navigate('/');
   };
 
-
   return (
     <section className="mt-8 lg:mt-10">
       <Container>
@@ -76,8 +75,10 @@ const FormRegister = () => {
               onChange={handlePass}
             />
             <Link to="#">
-              <button className="w-full rounded-full lg:w-1/4 btn btn-accent lg:px-10 text-custom-primary"
-                onClick={handleLogin}>
+              <button
+                className="w-full rounded-full lg:w-1/4 btn btn-accent lg:px-10 text-custom-primary"
+                onClick={handleLogin}
+              >
                 <span className="text-base">Daftar</span>
               </button>
             </Link>

@@ -22,17 +22,17 @@ export default function RewardOpt() {
                 />
               </div>
               <Link to={'/user/tukar'}>
-              <h4 className="mb-4 text-lg font-medium text-custom-tertiary">
-                Kopi Gula Aren
-              </h4>
+                <h4 className="mb-4 text-lg font-medium text-custom-tertiary">
+                  Kopi Gula Aren
+                </h4>
               </Link>
               <Link to={'/user/tukar'}>
-              <h4 className="mb-4 text-lg font-medium text-custom-tertiary">
-                5 Poin
-              </h4>
+                <h4 className="mb-4 text-lg font-medium text-custom-tertiary">
+                  5 Poin
+                </h4>
               </Link>
             </div>
-            
+
             <div className="flex flex-col items-center px-8 py-10 rounded-md bg-gray-50">
               <div className="flex justify-center w-20 py-6 mb-4 rounded-md bg-gray-50">
                 <img
@@ -42,12 +42,12 @@ export default function RewardOpt() {
                 />
               </div>
               <Link to={'/user/tukar'}>
-              <h4 className="mb-4 text-lg font-medium text-center text-custom-tertiary">
-                Tote Bag
-              </h4>
-              <h4 className="mb-4 text-lg font-medium text-center text-custom-tertiary">
-                15 Poin
-              </h4>
+                <h4 className="mb-4 text-lg font-medium text-center text-custom-tertiary">
+                  Tote Bag
+                </h4>
+                <h4 className="mb-4 text-lg font-medium text-center text-custom-tertiary">
+                  15 Poin
+                </h4>
               </Link>
             </div>
 
@@ -60,12 +60,12 @@ export default function RewardOpt() {
                 />
               </div>
               <Link to={'/user/tukar'}>
-              <h4 className="mb-4 text-lg text-center font-medium text-custom-tertiary">
-                Tumbler
-              </h4>
-              <h4 className="mb-4 text-lg text-center font-medium text-custom-tertiary">
-                30 Poin
-              </h4>
+                <h4 className="mb-4 text-lg font-medium text-center text-custom-tertiary">
+                  Tumbler
+                </h4>
+                <h4 className="mb-4 text-lg font-medium text-center text-custom-tertiary">
+                  30 Poin
+                </h4>
               </Link>
             </div>
           </div>

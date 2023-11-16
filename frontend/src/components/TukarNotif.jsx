@@ -18,11 +18,6 @@ export default function TukarNotif() {
               </Link>
             </li>
             <li>
-              <Link className="text-base" to="/user/tukar">
-                Tukar Reward
-              </Link>
-            </li>
-            <li>
               <Link className="text-base" to="#">
                 Berhasil!
               </Link>
@@ -31,7 +26,7 @@ export default function TukarNotif() {
         </div>
         <div className="flex h-screen">
           <div className="m-auto">
-            <div className="bg-custom-secondary rounded-lg border-gray-300 border p-3 shadow-lg">
+            <div className="p-3 border border-gray-300 rounded-lg shadow-lg bg-custom-secondary">
               <div className="flex flex-row">
                 <div className="px-2">
                   <svg
