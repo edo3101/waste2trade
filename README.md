@@ -93,9 +93,12 @@ Waste2Trade is actively maintained and developed. Feel free to explore the codeb
 ## Contributors
 
 Special thanks to the contributors who have dedicated their time and effort to make Waste2Trade a reality.
--Yohanes Eudes Anjas Susetya
--Mikael Garuda Prima Nusantara
--Redho Chairi Refi
--Fandi Meylwan Hasnur 
--Annisa Jullia Chandra
+
+- Yohanes Eudes Anjas Susetya
+- Mikael Garuda Prima Nusantara
+- Redho Chairi Refi
+- Fandi Meylwan Hasnur
+- Annisa Jullia Chandra
+
+
 
