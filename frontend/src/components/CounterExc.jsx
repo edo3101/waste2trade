@@ -1,52 +1,22 @@
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import kopiImage from '../assets/images/kopi-reward.jpg';
-import totebagImage from '../assets/images/totebag-reward.jpg';
-import tumblerImage from '../assets/images/tumbler-reward.jpg';
+import { Link, useParams } from 'react-router-dom';
 import Container from './Container';
 import useAxios from '../hooks/useAxios';
-
 
 const CounterExc = () => {
   const [count, setCount] = useState(0);
   const { axiosInstance } = useAxios();
-  const location = useLocation();
-
-  const queryParams = new URLSearchParams(location.search);
-  const redeemType = queryParams.get('type');
-
-  const imageMap = {
-    kopi: kopiImage,
-    bag: totebagImage,
-    tumbler: tumblerImage,
-  };
-
-  const imagePath = imageMap[redeemType];
+  const { productId } = useParams();
 
   const handleInputChange = (e) => {
     setCount(e.target.value);
   }
 
-  const calculatePoints = () => {
-    switch (redeemType) {
-      case 'kopi':
-        return count * -5;
-      case 'bag':
-        return count * -15;
-      case 'tumbler':
-        return count * -30;
-      default:
-        return 0;
-    }
-  };
-
   const exchangeReward = async (e) => {
     e.preventDefault();
 
     try {
-      const newPoints = calculatePoints();
-      console.log(newPoints)
-      const response = await axiosInstance.put(`/user/redeem${redeemType}`, newPoints);
+      const response = await axiosInstance.put(`/user/buyProduct/${productId}`, { quantity: count });
 
       if (response.status === 200) {
         window.location.assign('/user/berhasil');
@@ -70,7 +40,7 @@ const CounterExc = () => {
 
   return (
     <section className="w-full bg-custom-primary">
-      <Container className="py-5 lg:px-5">
+      <Container>
         <div className="mt-3 text-sm breadcrumbs text-custom-tertiary">
           <ul>
             <li>
@@ -94,11 +64,6 @@ const CounterExc = () => {
           <div className="container mx-auto max-w-md shadow-md hover:shadow-lg transition duration-300">
             <div className="py-12 p-10 bg-custom-primary">
               <div className="mb-6 text-center">
-                <img
-                  className="object-cover h-32 w-32 rounded-full mx-auto"
-                  src={imagePath}
-                  alt={redeemType}
-                />
                 <div className="custom-number-input h-10 w-32 mx-auto my-5">
                   <label
                     htmlFor="custom-input-number"

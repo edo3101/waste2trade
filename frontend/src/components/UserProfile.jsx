@@ -1,19 +1,18 @@
+/* eslint-disable react/jsx-key */
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import Container from './Container';
-import kopi from '../assets/images/kopi-reward.jpg';
-import totebag from '../assets/images/totebag-reward.jpg';
-import tumbler from '../assets/images/tumbler-reward.jpg';
 import w2tProfile from '../assets/images/ProfileUser.jpg';
 import useAxios from '../hooks/useAxios';
 
 export default function UserProfile() {
   const [userData, setUserData] = useState({});
+  const [products, setProducts] = useState({});
   const [giftCodeInput, setGiftCodeInput] = useState('');
   const [claimStatus, setClaimStatus] = useState(null);
   const { axiosInstance } = useAxios();
-  
+
   const fetchData = async () => {
     try {
       const authToken = Cookies.get('auth_token');
@@ -28,6 +27,15 @@ export default function UserProfile() {
       console.error('Error fetching data:', error);
     }
   };
+
+  const fetchProduct = async () => {
+    try {
+      const productResponse = await axiosInstance.get('/user/products');
+      setProducts(productResponse.data);
+    } catch (error) {
+      console.error('Error fetching product:', error);
+    }
+  }
 
   const claimGiftCode = async () => {
     try {
@@ -52,10 +60,11 @@ export default function UserProfile() {
 
   useEffect(() => {
     fetchData();
+    fetchProduct();
   }, []);
 
   return (
-    <section className="py-10 md:py-16 bg-custom-primary">
+    <section className="pb-8 lg:pb-10 bg-custom-primary">
       <Container>
         <div className="mt-3 text-sm breadcrumbs text-custom-tertiary">
           <ul>
@@ -73,7 +82,7 @@ export default function UserProfile() {
         </div>
         <div className="container max-w-screen-xl px-4 mx-auto">
           <div className="text-center">
-            <h1 className="mb-8 text-lg font-medium uppercase text-custom-secondary md:text-2xl">
+            <h1 className="mt-5 mb-8 text-lg font-medium uppercase text-custom-tertiary md:text-2xl">
               Hi, Coffee Lover!
             </h1>
           </div>
@@ -81,18 +90,18 @@ export default function UserProfile() {
           <div className="text-center">
             <div className="flex justify-center mb-16">
               <img
-                className="object-cover rounded-full h-80 w-80"
+                className="object-cover rounded-full h-48 w-48 lg:h-80 lg:w-80"
                 src={w2tProfile}
-                alt=""
+                alt="w2tProfile"
               />
             </div>
 
-            <h6 className="mb-8 text-lg font-medium uppercase text-custom-secondary md:text-2xl">
+            <h6 className="mb-8 text-lg font-semibold uppercase text-custom-tertiary md:text-2xl">
               {userData.username}
             </h6>
 
-            <h6 className="mb-8 text-lg font-medium uppercase text-custom-secondary md:text-2xl">
-              Poin Terkumpul: {userData.points}
+            <h6 className="mb-8 text-lg font-medium uppercase text-custom-tertiary md:text-2xl">
+              Poin Terkumpul: <span className="font-semibold">{userData.points}</span>
             </h6>
 
             {claimStatus && (
@@ -106,7 +115,7 @@ export default function UserProfile() {
                 <input
                   type="text"
                   placeholder="Input Gift Code"
-                  className="w-2/3 px-4 py-2 border rounded-md text-custom-tertiary"
+                  className="w-2/3 px-4 py-2 mb-4 border rounded-md text-custom-tertiary"
                   value={giftCodeInput}
                   onChange={(e) => setGiftCodeInput(e.target.value)}
                 />
@@ -125,60 +134,24 @@ export default function UserProfile() {
             PILIH HADIAH MENARIK!
           </h1>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <div className="flex flex-col items-center px-8 py-10 rounded-md bg-gray-50">
-              <div className="flex justify-center w-20 py-6 mb-4 rounded-md bg-gray-50">
-                <img
-                  className="object-cover w-20 h-20 rounded-full"
-                  src={kopi}
-                  alt=""
-                />
-              </div >
-              <Link to={'/user/tukar?type=kopi'}>
-                <h4 className="mb-4 text-lg font-medium text-center text-custom-tertiary">
-                  Kopi Gula Aren
-                </h4>
-                <h4 className="mb-4 text-lg font-medium text-center text-custom-tertiary">
-                  5 Poin
-                </h4>
-              </Link>
-            </div>
-
-            <div className="flex flex-col items-center px-8 py-10 rounded-md bg-gray-50">
-              <div className="flex justify-center w-20 py-6 mb-4 rounded-md bg-gray-50">
-                <img
-                  className="object-cover w-20 h-20 rounded-full"
-                  src={totebag}
-                  alt=""
-                />
-              </div>
-              <Link to={'/user/tukar?type=bag'}>
-                <h4 className="mb-4 text-lg font-medium text-center text-custom-tertiary">
-                  Tote Bag
-                </h4>
-                <h4 className="mb-4 text-lg font-medium text-center text-custom-tertiary">
-                  15 Poin
-                </h4>
-              </Link>
-            </div>
-
-            <div className="flex flex-col items-center px-8 py-10 rounded-md bg-gray-50">
-              <div className="flex justify-center w-20 py-6 mb-4 rounded-md bg-gray-50">
-                <img
-                  className="object-cover w-20 h-20 rounded-full"
-                  src={tumbler}
-                  alt=""
-                />
-              </div>
-              <Link to={'/user/tukar?type=tumbler'}>
-                <h4 className="mb-4 text-lg font-medium text-center text-custom-tertiary">
-                  Tumbler
-                </h4>
-                <h4 className="mb-4 text-lg font-medium text-center text-custom-tertiary">
-                  30 Poin
-                </h4>
-              </Link>
-            </div>
+            {Array.isArray(products) ? (
+              products.map((product) => (
+                <Link to={`/user/tukar/${product._id}`}>
+                  <div key={product._id} className="card flex flex-col items-center hover:shadow-lg px-8 py-10 rounded-md bg-gray-50">
+                    <h4 className="mb-4 text-lg font-semibold text-center text-custom-tertiary">
+                      {product.name}
+                    </h4>
+                    <p className="mb-4 text-base font-medium text-center text-custom-tertiary">
+                      {product.price} Poin
+                    </p>
+                  </div>
+                </Link>
+              ))
+            ) : (
+              <p>products bukan array</p>
+            )}
           </div>
+
         </div>
       </Container>
     </section>

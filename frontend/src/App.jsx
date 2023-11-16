@@ -39,16 +39,16 @@ function App() {
           {/* <Route path="register" element={<RegisterPage />} /> */}
         </Route>
 
-        <Route path="/user" element={<UserLayout />}> 
+        <Route path="/user" element={<UserLayout />}>
           <Route path="profile" element={<UserPage />} />
-          <Route path="tukar" element={<RewardCount />} />
+          <Route path="tukar/:productId" element={<RewardCount />} />
           <Route path="kedai" element={<KedaiUserPage />} />
           <Route path="berhasil" element={<ExcNotif />} />
         </Route>
 
         <Route path="/mitra" element={<MitraLayout />}>
           <Route path="dashboard" element={<MitraPage />} />
-          <Route path="tukar" element={<TukarSampahMitra />} />    
+          <Route path="tukar" element={<TukarSampahMitra />} />
           <Route path="giftcode" element={<Giftcode />} />
         </Route>
 
