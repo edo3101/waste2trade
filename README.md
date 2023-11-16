@@ -1,4 +1,3 @@
-```markdow
 # Waste2Trade
 
 ## Table of Contents
