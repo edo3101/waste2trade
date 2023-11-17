@@ -96,8 +96,11 @@ To get a local copy up and running, follow these simple example steps:
 
 Use this space to show useful examples of how the Waste2Trade platform can be used. Below are some scenarios and examples:
 
+*USER*
+
 1. **User Registration:**
-   - Navigate to the registration page by clicking on the "Register" link in the navigation bar.
+   - Navigate to the registration page by clicking on the "Join" in the landing page.
+   - Or "Register" in the login page.
    - Fill in the required information such as username, email, and password.
    - Click the "Register" button to create a new user account.
 
@@ -107,21 +110,44 @@ Use this space to show useful examples of how the Waste2Trade platform can be us
    - Click the "Login" button to log in to your account.
 
 3. **Exploring Available Products:**
-   - Once logged in, visit the "List Products" section to explore available products for waste exchange.
+   - Once logged in, scroll down and check the  section to explore available products for waste exchange.
    - View details about each product, including images and descriptions.
 
-4. **Initiating Waste Exchange:**
-   - Navigate to the "Tukar Sampah" (Waste Exchange) section.
-   - Select the type and quantity of waste you want to exchange.
-   - Click the "Tukarkan" (Exchange) button to initiate the process.
+4. **User Profile and Claiming Barcode:**
+   - View your profile details and reward options.
+   - You can claim the barcode by typing your Giftcode from the partners in the 'Input Gift Code' space.
 
-5. **Viewing User Profile:**
-   - Check your user profile by clicking on the "Profile" link in the user dashboard.
-   - View your profile details, transaction history, and earned rewards.
+*PARTNER*
 
-6. **Coffee Shop Partner Dashboard:**
+5. **Coffee Shop Partner Dashboard:**
    - If you are a coffee shop partner, log in to the platform using the provided credentials.
-   - Explore the coffee shop dashboard, including transaction history and user interactions.
+   - Explore the coffee shop dashboard, including transaction history, list of catalogue, and option to count the waste submission.
+     
+6. **Counting Waste Exchange:**
+   - In the dashboard, navigate to the "Hitung Sampah" section.
+   - Select the type and quantity of waste you want to exchange.
+   - Click the "Submit" button to initiate the process.
+  
+7. **Counting Waste Exchange:**
+   - In the dashboard, navigate to the "Hitung Sampah" section.
+   - Fill user's name and handphone number.
+   - Select the type and quantity of waste you want to exchange.
+   - Click the "Submit" button to initiate the process.
+  
+8. **Giftcode / Barcode:**
+   - After clicking submit button, giftcode or barcode will appear.
+   - Give it to user.
+   - User may copy or save it and claim the barcode in their dashboard.
+
+*WITHOUT LOGIN*
+     
+9. **Exploring Partners and Products:**
+   - Click "Mitra dan Produk" section to explore available products and partners (coffee shops) for waste exchange.
+   - View details about each product and partner, including images, descriptions, addresses, opening hours.
+     
+10. **About Us**
+   - Visit the landing page, click "More" on "Tentang Kami" section.
+   - View details about our mission, flow, and team members.
 
 ## Scope of Functionalities
 
