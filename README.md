@@ -145,7 +145,7 @@ Use this space to show useful examples of how the Waste2Trade platform can be us
    - Click "Mitra dan Produk" section to explore available products and partners (coffee shops) for waste exchange.
    - View details about each product and partner, including images, descriptions, addresses, opening hours.
      
-10. **About Us**
+10. **About Us:**
    - Visit the landing page, click "More" on "Tentang Kami" section.
    - View details about our mission, flow, and team members.
 
