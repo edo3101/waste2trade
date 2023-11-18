@@ -47,10 +47,10 @@ export default function About() {
             Waste2Trade adalah sebuah platform bagi anak muda dan pemilik kedai
             kopi yang ingin berkontribusi dalam mengurangi sampah di Indonesia
             dengan cara menukarkan sampah untuk produk/barang yang ditawarkan
-            oleh kedai kopi (sebagai mitra).
+            oleh kedai kopi (mitra).
           </p>
         </div>
-
+        
         <div className="container max-w-screen-xl px-4 mx-auto">
           <h1 className="my-8 ml-10 text-lg font-medium uppercase text-custom-secondary md:text-2xl mt-15">
             MISI KAMI UNTUK GENERASI MUDA
@@ -105,6 +105,45 @@ export default function About() {
             </div>
           </div>
         </div>
+
+         <div className="container max-w-screen-xl px-4 mx-auto">
+          <h1 className="my-8 ml-10 text-lg font-medium uppercase text-custom-secondary md:text-2xl mt-15">
+            SEKILAS MENGENAI PEMILAHAN SAMPAH
+          </h1>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
+            <div className="flex flex-col items-center px-8 py-10 rounded-md bg-gray-50">
+              <h4 className="mb-4 text-lg font-medium text-center text-custom-tertiary">
+                Sampah Organik <br></br> (sampah yang dapat terurai)
+              </h4>
+              <p className="font-normal text-gray-500 text-md">Contoh: daun kering, sayur, sisa makanan, bekas/kulit buah</p>
+              <br></br>
+              <ul className="font-normal text-gray-500 text-md">
+                <li>- Pisahkan sampah organik basah dan kering</li>
+                <li>- Gunakan sebagai pakan hewan peliharaan</li>
+                <li>- Kubur sampah</li>
+                <li>- Tanam ulang sayuran</li>
+                <li>- Gunakan sebagai pupuk kompos</li>
+              </ul>
+            </div>
+
+            <div className="flex flex-col items-center px-8 py-10 rounded-md bg-gray-50">
+              <h4 className="mb-4 text-lg text-center font-medium text-custom-tertiary">
+                Sampah Anorganik <br></br> (sampah yang sulit terurai)
+              </h4>
+              <p className="font-normal text-gray-500 text-md">Contoh: plastik, botol, sedotan, kaleng, kresek, kaca, kertas</p>
+              <br></br>
+              <ul className="font-normal text-gray-500 text-md">
+                <li>- Kumpulkan sampah</li>
+                <li>- Pisahkan jenis sampahnya</li>
+                <li>- Bersihkan sampah</li>
+                <li>- Gunakan ulang (reuse)</li>
+                <li>- Setorkan ke bank sampah (recycle)</li>
+                <li>- Manfaatkan sebagai ecobrick</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
         <div className="flex flex-col items-center justify-center mt-10 mb-10 md:flex-row">
           <h1 className="my-8 text-lg font-medium uppercase text-custom-secondary md:text-2xl md:mr-10">
             CARA KERJA
