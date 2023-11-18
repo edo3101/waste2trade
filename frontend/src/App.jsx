@@ -17,6 +17,7 @@ import {
   AboutUs,
   RewardCount2,
   ExcNotif2,
+  NotFoundPage,
 } from './pages';
 
 function App() {
@@ -53,6 +54,8 @@ function App() {
         </Route>
 
         <Route path="/list" element={<ListProdUser />}></Route>
+
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );

@@ -14,3 +14,4 @@ export { default as TukarSampahMitra } from './TukarSampahMitra';
 export { default as ListProdUser } from './ListProdUser';
 export { default as Giftcode } from './Giftcode';
 export { default as AboutUs } from './AboutUs';
+export { default as NotFoundPage } from './NotFoundPage';
